@@ -238,24 +238,19 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
 <nav class="nav"><div class="nav-in"><div class="nav-brand"><span>🩺</span> NC Health Science</div><div class="nav-tabs"><button class="nav-tab active" onclick="showPage('home')">🏠 Home</button><button class="nav-tab" onclick="showPage('cc')">🃏 Canva Code</button><button class="nav-tab" onclick="showPage('bc')">🖨 Bulk Create CSV</button><button class="nav-tab" onclick="showPage('guide')">📖 Teacher Guide</button></div></div></nav>
 
 <!-- API KEY BANNER -->
-<div id="apiKeyBanner" style="background:#1C3A5E;padding:14px 24px;display:block;">
-  <div style="max-width:940px;margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
-    <div style="flex:1;min-width:220px;">
-      <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:3px;">🔑 Anthropic API key required to generate card data</div>
-      <div style="font-size:12px;color:rgba(255,255,255,.65);">Your key stays in this browser session only — never stored on any server. Get a key at <a href="https://console.anthropic.com" target="_blank" style="color:var(--teal-l);">console.anthropic.com</a></div>
-    </div>
-    <div style="display:flex;gap:8px;align-items:center;flex-shrink:0;">
-      <input id="apiKeyInput" type="password" placeholder="sk-ant-..." style="font-family:'DM Sans',sans-serif;font-size:13px;padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);color:#fff;width:260px;outline:none;" onkeydown="if(event.key==='Enter')saveApiKey()">
-      <button onclick="saveApiKey()" style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;padding:8px 18px;border-radius:8px;border:none;background:var(--teal-l);color:#0F6E56;cursor:pointer;">Save key</button>
-    </div>
+<!-- PASSWORD GATE -->
+<div id="passwordGate" style="position:fixed;inset:0;background:#0F6E56;z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;">
+  <div style="background:#fff;border-radius:20px;padding:40px 44px;max-width:420px;width:100%;text-align:center;box-shadow:0 24px 60px rgba(0,0,0,.25);">
+    <div style="font-size:40px;margin-bottom:14px;">🩺</div>
+    <div style="font-family:'Lora',serif;font-size:22px;font-weight:600;color:#1C1C1A;margin-bottom:8px;">NC Health Science Tools</div>
+    <div style="font-size:13px;color:#6B6B64;margin-bottom:26px;line-height:1.6;">Ashe County Schools · CTE Health Science<br>Enter the access password to continue.</div>
+    <input id="pwInput" type="password" placeholder="Password..." style="width:100%;font-family:'DM Sans',sans-serif;font-size:15px;padding:12px 16px;border-radius:10px;border:2px solid #E1F5EE;outline:none;margin-bottom:10px;color:#1C1C1A;text-align:center;letter-spacing:.12em;" onkeydown="if(event.key==='Enter')checkPw()">
+    <div id="pwError" style="font-size:12px;color:#A32D2D;margin-bottom:10px;min-height:18px;"></div>
+    <button onclick="checkPw()" style="width:100%;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;padding:12px;border-radius:10px;border:none;background:#0F6E56;color:#fff;cursor:pointer;">Enter →</button>
+    <div style="font-size:11px;color:#9B9B92;margin-top:18px;">Contact your school media coordinator for access.</div>
   </div>
 </div>
-<div id="apiKeySet" style="background:#0A3D2E;padding:10px 24px;display:none;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
-  <div style="max-width:940px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;">
-    <div style="font-size:12px;color:rgba(255,255,255,.7);">✓ API key active: <span id="apiKeyDisplay" style="font-family:'Courier New',monospace;color:var(--teal-l);"></span></div>
-    <button onclick="clearApiKey()" style="font-family:'DM Sans',sans-serif;font-size:12px;padding:4px 12px;border-radius:6px;border:1px solid rgba(255,255,255,.2);background:transparent;color:rgba(255,255,255,.6);cursor:pointer;">Change key</button>
-  </div>
-</div>
+
 <div id="page-home" class="page active">
 <div class="home-hdr"><div class="home-hdr-in"><div class="home-eye">NC CTE Health Science · Ashe County Schools</div><h1>Health Science<br><em>Study Card Tools</em></h1><p class="home-desc">NC standards-aligned vocabulary tools for Health Science I, Anatomy &amp; Physiology, and CTE Nurse Aide — bilingual support included. Build interactive digital activities and print-ready card sets in minutes.</p><div class="home-chips"><span class="home-chip">NC CTE Aligned</span><span class="home-chip">Pre-loaded Vocabulary</span><span class="home-chip">English + Spanish</span><span class="home-chip">AI-Powered</span></div></div></div>
 <div class="home-main">
@@ -454,30 +449,25 @@ ap:{"Cells & Histology":["Cell membrane","Phospholipid bilayer","Nucleus","Mitoc
 nur:{"Infection Control & Safety":["Pathogen","Standard precautions","PPE","Hand hygiene","Isolation","Chain of infection","Reservoir","Mode of transmission","Susceptible host","Medical asepsis","Surgical asepsis","MRSA","C. difficile","Disinfection","Sterilization","Contact precautions","Droplet precautions","Airborne precautions","Nosocomial infection"],"Vital Signs & Measurement":["Temperature","Pulse","Respiration","Blood pressure","Pain scale","Thermometer","Sphygmomanometer","Stethoscope","Apical pulse","Bradycardia","Tachycardia","Hypertension","Hypotension","Pyrexia","Intake and output","Orthostatic hypotension","Dyspnea","Pulse oximetry","SpO2","Normal vital sign ranges"],"Medical Terminology":["Prefix","Suffix","Root word","Anterior","Posterior","Lateral","Medial","Proximal","Distal","Superior","Inferior","Dorsal","Ventral","Abduction","Adduction","Flexion","Extension","Prone","Supine","Fowler's position"],"Patient Rights & Communication":["Informed consent","Advance directive","HIPAA","Ombudsman","Abuse","Neglect","Exploitation","Active listening","Therapeutic communication","Objective data","Subjective data","Confidentiality","Dignity","Resident's rights","Grievance","DNR","Power of attorney","Non-verbal communication"],"Personal Care & ADLs":["Ambulation","Range of motion","Body mechanics","Transfer belt","Decubitus ulcer","Incontinence","Catheter","Perineal care","Oral hygiene","Aspiration","Bed bath","Positioning","Contracture","Restorative care","Prosthesis","Assistive device","Splint","Braden scale","Skin integrity"],"Cardiovascular System":["Heart","Artery","Vein","Capillary","Blood pressure","Pulse","Hypertension","Heart failure","Angina","Myocardial infarction","Edema","Cyanosis","Pacemaker","Atherosclerosis","Deep vein thrombosis","Congestive heart failure","Cardiac arrest"],"Respiratory System":["Lung","Airway","Oxygen","Carbon dioxide","Respiration","Dyspnea","Apnea","Hypoxia","Cyanosis","Nebulizer","Incentive spirometer","Tracheostomy","Sputum","COPD","Pneumonia","Asthma","Tuberculosis","Aspiration pneumonia","Pulse oximetry"],"Musculoskeletal System":["Bone","Joint","Muscle","Tendon","Ligament","Range of motion","Flexion","Extension","Abduction","Adduction","Ambulation","Gait","Walker","Cane","Crutches","Fracture","Osteoporosis","Arthritis","Contracture","Body mechanics"],"Nervous System":["Brain","Spinal cord","Neuron","Reflex","Cognition","Orientation","Confusion","Dementia","Alzheimer disease","Stroke","Aphasia","Hemiplegia","Seizure","Paralysis","Parkinson disease","Multiple sclerosis","Coma","Glasgow Coma Scale"],"Integumentary System":["Skin","Epidermis","Dermis","Wound","Decubitus ulcer","Stage I pressure injury","Stage II pressure injury","Stage III pressure injury","Stage IV pressure injury","Wound infection","Drainage","Edema","Jaundice","Cyanosis","Turgor","Rash","Lesion","Braden scale"],"Urinary System":["Kidney","Ureter","Bladder","Urethra","Urine","Urinary catheter","Foley catheter","UTI","Intake and output","Urinary incontinence","Urinary retention","Hematuria","Dysuria","Dialysis","Renal failure","Perineal care"],"Digestive System":["Mouth","Esophagus","Stomach","Small intestine","Large intestine","Bowel movement","Constipation","Diarrhea","Nausea","Vomiting","Ostomy","Colostomy","Ileostomy","NPO","Nasogastric tube","Dysphagia","Aspiration","Enema","Fecal impaction"],"Endocrine System":["Hormone","Diabetes mellitus","Insulin","Blood glucose","Hypoglycemia","Hyperglycemia","Glucometer","Thyroid gland","Hypothyroidism","Hyperthyroidism","Adrenal gland","Cortisol","Pituitary gland","Diabetic ketoacidosis","Signs of hypoglycemia","Signs of hyperglycemia"],"Nutrition & Fluid Intake":["Calorie","Carbohydrate","Protein","Fat","Fiber","Vitamin","Mineral","Hydration","Dehydration","Dysphagia","Thickened liquids","Therapeutic diet","Low sodium diet","Diabetic diet","Aspiration precautions","Feeding assistance","Malnutrition","Intake and output","NPO"]}
 };
 
-// ── API KEY ──
-let _apiKey='';
-function getApiKey(){
-  if(_apiKey) return _apiKey;
-  const stored=sessionStorage.getItem('hsc_api_key');
-  if(stored){_apiKey=stored;updateKeyBanner();return _apiKey;}
-  return null;
+// ── PASSWORD GATE + EMBEDDED API KEY ──
+const _PW = 'YOUR_PASSWORD_HERE';      // ← replace this in GitHub editor
+const _KEY = 'YOUR_API_KEY_HERE';      // ← replace this in GitHub editor
+
+function checkPw(){
+  const val=document.getElementById('pwInput').value.trim();
+  if(val===_PW){
+    document.getElementById('passwordGate').style.display='none';
+    sessionStorage.setItem('hsc_unlocked','1');
+  } else {
+    document.getElementById('pwError').textContent='Incorrect password — please try again.';
+    document.getElementById('pwInput').value='';
+    document.getElementById('pwInput').focus();
+  }
 }
-function saveApiKey(){
-  const val=document.getElementById('apiKeyInput').value.trim();
-  if(!val.startsWith('sk-ant-')){alert('That doesn\'t look like a valid Anthropic API key. It should start with sk-ant-');return;}
-  _apiKey=val;sessionStorage.setItem('hsc_api_key',val);
-  document.getElementById('apiKeyBanner').style.display='none';
-  document.getElementById('apiKeySet').style.display='flex';
-  document.getElementById('apiKeyDisplay').textContent=val.slice(0,16)+'...';
-}
-function clearApiKey(){_apiKey='';sessionStorage.removeItem('hsc_api_key');document.getElementById('apiKeySet').style.display='none';document.getElementById('apiKeyBanner').style.display='block';}
-function updateKeyBanner(){if(_apiKey){document.getElementById('apiKeyBanner').style.display='none';document.getElementById('apiKeySet').style.display='flex';document.getElementById('apiKeyDisplay').textContent=_apiKey.slice(0,16)+'...';}}
 
 // ── SHARED API + COPY ──
 async function callClaude(prompt,maxTok){
-  const key=getApiKey();
-  if(!key){document.getElementById('apiKeyBanner').style.display='block';document.getElementById('apiKeyInput').focus();throw new Error('No API key');}
-  const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:maxTok||4000,messages:[{role:'user',content:prompt}]})});
+  const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':_KEY,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:maxTok||4000,messages:[{role:'user',content:prompt}]})});
   if(!r.ok){const e=await r.json().catch(()=>({}));throw new Error(e.error?.message||'API error '+r.status);}
   const d=await r.json();return(d.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('').trim();
 }
@@ -537,7 +527,8 @@ function bc_downloadCSV(){if(!bc_cardData.length){alert('Generate card data firs
 // ── INIT ──
 cc_updateSel();cc_makeVocabGrid('cc',cc_course,cc_subject);document.getElementById('cc-memOpts').style.display='none';
 bc_updateSel();cc_makeVocabGrid('bc',bc_course,bc_subject);document.getElementById('bc-qaInfo').style.display='none';
-getApiKey();
+if(sessionStorage.getItem('hsc_unlocked')==='1'){document.getElementById('passwordGate').style.display='none';}
+else{document.getElementById('pwInput').focus();}
 </script>
 </body>
 </html>
