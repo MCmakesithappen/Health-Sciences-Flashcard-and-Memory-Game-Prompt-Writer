@@ -6,11 +6,11 @@
 <title>NC Health Science - Canva Code Prompt Writer</title>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--teal:#0F6E56;--teal-l:#5DCAA5;--teal-bg:#E1F5EE;--teal-pale:#F0FAF6;--blue:#185FA5;--blue-bg:#E6F1FB;--blue-br:#85B7EB;--amber:#854F0B;--amber-l:#EF9F27;--amber-bg:#FAEEDA;--green:#3B6D11;--green-bg:#EAF3DE;--green-l:#97C459;--ink:#1C1C1A;--ink-m:#44443F;--ink-mu:#6B6B64;--ink-h:#9B9B92;--surf:#FFF;--bg:#F7F6F2;--bg2:#F0EFE9;--bdr:rgba(0,0,0,.09);--bdr-m:rgba(0,0,0,.15);--r:8px;--rm:12px;--rl:16px;--rxl:22px;--sh:0 1px 4px rgba(0,0,0,.07),0 6px 16px rgba(0,0,0,.05);}
+:root{--teal:#0F6E56;--teal-l:#5DCAA5;--teal-bg:#E1F5EE;--teal-pale:#F0FAF6;--blue:#185FA5;--blue-bg:#E6F1FB;--blue-br:#85B7EB;--amber:#854F0B;--amber-l:#EF9F27;--amber-bg:#FAEEDA;--ink:#1C1C1A;--ink-m:#44443F;--ink-mu:#6B6B64;--ink-h:#9B9B92;--surf:#FFF;--bg:#F7F6F2;--bdr:rgba(0,0,0,.09);--bdr-m:rgba(0,0,0,.15);--r:8px;--rm:12px;--rl:16px;--sh:0 1px 4px rgba(0,0,0,.07),0 6px 16px rgba(0,0,0,.05);}
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;}
-.hdr{background:linear-gradient(135deg,#0F6E56 0%,#185FA5 100%);padding:32px 44px 28px;position:relative;overflow:hidden;}
-.hdr::before{content:'';position:absolute;top:-80px;right:-60px;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,.05);}
+.hdr{background:linear-gradient(135deg,#0F6E56,#185FA5);padding:32px 44px 28px;overflow:hidden;position:relative;}
+.hdr::before{content:'';position:absolute;top:-80px;right:-60px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.05);}
 .hdr-in{max-width:900px;margin:0 auto;position:relative;}
 .hdr-eye{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:8px;}
 .hdr h1{font-family:'Lora',serif;font-size:28px;color:#fff;line-height:1.2;margin-bottom:8px;}
@@ -21,18 +21,18 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
 .panel{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rl);padding:20px 24px;margin-bottom:14px;box-shadow:var(--sh);}
 .step-hdr{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
 .step-n{width:26px;height:26px;border-radius:50%;background:var(--teal);color:#fff;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.step-lbl{font-size:15px;font-weight:600;color:var(--ink);}
+.step-lbl{font-size:15px;font-weight:600;}
 .step-sub{font-size:12px;color:var(--ink-h);margin-left:auto;}
-.sec-lbl{font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-h);margin-bottom:8px;display:block;}
+.sec-lbl{font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-h);margin-bottom:8px;display:block;margin-top:4px;}
 .ctabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
-.ctab{font-size:13px;font-weight:500;padding:6px 16px;border-radius:99px;border:1px solid var(--bdr-m);background:transparent;cursor:pointer;color:var(--ink-mu);transition:all .15s;font-family:'DM Sans',sans-serif;}
+.ctab{font-size:13px;font-weight:500;padding:6px 16px;border-radius:99px;border:1px solid var(--bdr-m);background:transparent;cursor:pointer;color:var(--ink-mu);font-family:'DM Sans',sans-serif;}
 .ctab.a-hs{background:var(--teal-bg);color:var(--teal);border-color:var(--teal-l);font-weight:600;}
 .ctab.a-ap{background:var(--blue-bg);color:var(--blue);border-color:var(--blue-br);font-weight:600;}
 .ctab.a-nur{background:var(--amber-bg);color:var(--amber);border-color:var(--amber-l);font-weight:600;}
 .spanel{display:none;}.spanel.vis{display:block;}
 .cnote{font-size:12px;color:var(--ink-h);margin-bottom:9px;}
 .pills{display:flex;flex-wrap:wrap;gap:6px;}
-.pill{font-size:12px;font-weight:500;padding:4px 12px;border-radius:99px;border:1px solid var(--bdr-m);background:transparent;cursor:pointer;color:var(--ink-mu);transition:all .15s;font-family:'DM Sans',sans-serif;}
+.pill{font-size:12px;font-weight:500;padding:4px 12px;border-radius:99px;border:1px solid var(--bdr-m);background:transparent;cursor:pointer;color:var(--ink-mu);font-family:'DM Sans',sans-serif;}
 .pill.active{background:var(--teal-bg);color:var(--teal);border-color:var(--teal-l);font-weight:600;}
 .sel-disp{font-size:13px;color:var(--teal);font-weight:500;margin-top:8px;display:none;}
 .sel-disp.vis{display:block;}
@@ -40,12 +40,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
 .vocab-meta{font-size:13px;color:var(--ink-mu);}.vocab-meta strong{color:var(--teal);}
 .vbtns{display:flex;gap:6px;}
 .vbtn{font-size:12px;font-weight:500;padding:4px 12px;border-radius:99px;border:1px solid var(--bdr-m);background:transparent;cursor:pointer;color:var(--ink-mu);font-family:'DM Sans',sans-serif;}
+.vbtn:hover{background:var(--bg);}
 .term-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-bottom:12px;}
-.term-item{display:flex;align-items:center;gap:7px;padding:6px 9px;border-radius:var(--r);border:1px solid var(--bdr);background:var(--bg);cursor:pointer;transition:all .12s;user-select:none;}
-.term-item:hover{border-color:var(--teal-l);background:var(--teal-pale);}
+.term-item{display:flex;align-items:center;gap:7px;padding:6px 9px;border-radius:var(--r);border:1px solid var(--bdr);background:var(--bg);cursor:pointer;user-select:none;}
 .term-item.on{border-color:var(--teal-l);background:var(--teal-bg);}
 .term-item input[type=checkbox]{width:13px;height:13px;accent-color:var(--teal);flex-shrink:0;cursor:pointer;}
-.term-item span{font-size:12px;font-weight:500;color:var(--ink-m);line-height:1.3;}
+.term-item span{font-size:12px;font-weight:500;color:var(--ink-m);}
 .term-item.on span{color:var(--teal);}
 .sel-count{font-size:13px;font-weight:600;color:var(--teal);background:var(--teal-bg);border:1px solid var(--teal-l);border-radius:var(--r);padding:7px 12px;margin-bottom:10px;display:none;}
 .sel-count.vis{display:block;}
@@ -56,37 +56,35 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
 .add-hint{font-size:11px;color:var(--ink-h);margin-top:3px;}
 .tog-row{display:grid;border:1px solid var(--bdr-m);border-radius:var(--rm);overflow:hidden;margin-bottom:12px;}
 .tog-row.c2{grid-template-columns:1fr 1fr;}.tog-row.c3{grid-template-columns:1fr 1fr 1fr;}
-.tog{padding:9px 6px;text-align:center;cursor:pointer;color:var(--ink-mu);background:transparent;border:none;font-family:'DM Sans',sans-serif;transition:all .15s;border-left:1px solid var(--bdr);}
-.tog:first-child{border-left:none;}.tog:hover{background:var(--bg);}.tog.active{background:var(--teal-bg);color:var(--teal);font-weight:600;}
+.tog{padding:9px 6px;text-align:center;cursor:pointer;color:var(--ink-mu);background:transparent;border:none;border-left:1px solid var(--bdr);font-family:'DM Sans',sans-serif;}
+.tog:first-child{border-left:none;}.tog.active{background:var(--teal-bg);color:var(--teal);font-weight:600;}
 .tog .t{display:block;font-size:13px;}.tog .d{display:block;font-size:11px;color:var(--ink-h);margin-top:1px;}.tog.active .d{color:var(--teal);opacity:.8;}
 .ogrid{display:grid;gap:8px;margin-bottom:12px;}
 .ogrid.c2{grid-template-columns:1fr 1fr;}.ogrid.c3{grid-template-columns:repeat(3,1fr);}.ogrid.c4{grid-template-columns:repeat(4,1fr);}
-.gopt{border:1px solid var(--bdr-m);border-radius:var(--rm);padding:10px 8px;cursor:pointer;text-align:center;transition:all .15s;background:var(--surf);}
-.gopt:hover{background:var(--bg);}
-.gopt .gi{display:block;font-size:18px;margin-bottom:4px;}.gopt .gt{display:block;font-size:13px;font-weight:600;color:var(--ink);}.gopt .gd{display:block;font-size:11px;color:var(--ink-h);margin-top:2px;}
-.gopt.active{border-color:var(--teal-l);background:var(--teal-bg);}.gopt.active .gt{color:var(--teal);}.gopt.active .gd{color:var(--teal);opacity:.8;}
+.gopt{border:1px solid var(--bdr-m);border-radius:var(--rm);padding:10px 8px;cursor:pointer;text-align:center;background:var(--surf);}
+.gopt .gi{display:block;font-size:18px;margin-bottom:4px;}.gopt .gt{display:block;font-size:13px;font-weight:600;}.gopt .gd{display:block;font-size:11px;color:var(--ink-h);margin-top:2px;}
+.gopt.active{border-color:var(--teal-l);background:var(--teal-bg);}.gopt.active .gt{color:var(--teal);}
 .mem-info{display:none;margin-top:10px;padding-top:10px;border-top:1px solid var(--bdr);}
 .mem-tip{background:var(--amber-bg);border:1px solid var(--amber-l);border-radius:var(--r);padding:9px 13px;font-size:12px;color:var(--amber);line-height:1.6;margin-top:10px;}
-.gen-btn{width:100%;padding:14px;font-size:16px;font-weight:600;border-radius:var(--rl);border:none;background:var(--teal);color:#fff;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .15s;display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px;}
+.gen-btn{width:100%;padding:14px;font-size:16px;font-weight:600;border-radius:var(--rl);border:none;background:var(--teal);color:#fff;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px;}
 .gen-btn:hover{background:#0A5240;}
 .out-sec{display:none;}.out-sec.vis{display:block;}
 .out-panel{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rl);padding:22px 26px;box-shadow:var(--sh);}
-.out-title{font-size:16px;font-weight:600;color:var(--ink);margin-bottom:4px;}
-.out-sub{font-size:13px;color:var(--ink-mu);margin-bottom:18px;line-height:1.6;}
+.out-title{font-size:16px;font-weight:600;margin-bottom:4px;}
+.out-sub{font-size:13px;color:var(--ink-mu);margin-bottom:16px;line-height:1.6;}
 .warn-box{background:var(--amber-bg);border:1px solid var(--amber-l);border-radius:var(--rm);padding:10px 14px;margin-bottom:14px;font-size:13px;color:var(--amber);line-height:1.6;}
 .chunk-block{margin-bottom:18px;}
-.chunk-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px;gap:12px;flex-wrap:wrap;}
-.chunk-label{font-size:14px;font-weight:600;color:var(--ink);}
-.chunk-count{font-size:12px;font-weight:600;margin-top:2px;}
+.chunk-hdr{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:7px;gap:12px;flex-wrap:wrap;}
+.chunk-label{font-size:14px;font-weight:600;}
+.chunk-count{font-size:12px;font-weight:600;margin-top:3px;}
 .prompt-box{font-family:'Courier New',monospace;font-size:11.5px;color:var(--ink-m);line-height:1.75;background:var(--bg);border:1px solid var(--bdr);border-radius:var(--rm);padding:14px 16px;white-space:pre-wrap;word-break:break-word;max-height:260px;overflow-y:auto;}
-.copy-btn{font-size:13px;font-weight:600;padding:7px 16px;border-radius:var(--rm);border:1px solid var(--teal-l);background:var(--teal-bg);color:var(--teal);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;white-space:nowrap;flex-shrink:0;}
-.copy-btn:hover{background:#9FE1CB;}.copy-btn.copied{background:var(--teal);color:#fff;border-color:var(--teal);}
-.how-to{background:var(--teal-pale);border:1px solid var(--teal-bg);border-radius:var(--rm);padding:13px 16px;margin-top:14px;}
+.copy-btn{font-size:13px;font-weight:600;padding:7px 16px;border-radius:var(--rm);border:1px solid var(--teal-l);background:var(--teal-bg);color:var(--teal);cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap;flex-shrink:0;}
+.copy-btn.copied{background:var(--teal);color:#fff;border-color:var(--teal);}
+.how-to{background:var(--teal-pale,#F0FAF6);border:1px solid var(--teal-bg);border-radius:var(--rm);padding:13px 16px;margin-top:14px;}
 .how-to-title{font-size:13px;font-weight:600;color:var(--teal);margin-bottom:8px;}
 .how-to ol{padding-left:17px;}
 .how-to li{font-size:13px;color:var(--ink-m);line-height:1.7;}
 .how-to li strong{color:var(--teal);}
-.how-to code{font-family:'Courier New',monospace;font-size:12px;background:var(--teal-bg);color:var(--teal);padding:1px 5px;border-radius:3px;}
 .footer{background:var(--teal);padding:20px 40px;text-align:center;}
 .footer-text{font-size:12px;color:rgba(255,255,255,.7);}
 .footer-text strong{color:#fff;}
@@ -94,11 +92,18 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
 </style>
 </head>
 <body>
+
 <div class="hdr"><div class="hdr-in">
 <div class="hdr-eye">NC CTE Health Science - Ashe County Schools</div>
 <h1>Canva Code Prompt Writer</h1>
 <p class="hdr-desc">Select NC standards-based vocabulary, choose your activity, and get a ready-to-paste prompt for Canva Code. Free to use - no API key required.</p>
-<div class="hdr-chips"><span class="chip">Free to use</span><span class="chip">No API key needed</span><span class="chip">NC CTE Aligned</span><span class="chip">Bilingual Support</span><span class="chip">Flashcards and Memory Games</span></div>
+<div class="hdr-chips">
+  <span class="chip">Free to use</span>
+  <span class="chip">No API key needed</span>
+  <span class="chip">NC CTE Aligned</span>
+  <span class="chip">Bilingual Support</span>
+  <span class="chip">Flashcards and Memory Games</span>
+</div>
 </div></div>
 
 <div class="main">
@@ -106,119 +111,135 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
 <div class="panel">
 <div class="step-hdr"><div class="step-n">1</div><div class="step-lbl">Choose course and subject area</div></div>
 <div class="ctabs">
-<button class="ctab a-hs" id="tab-hs" onclick="switchCourse('hs')">Health Science I</button>
-<button class="ctab" id="tab-ap" onclick="switchCourse('ap')">Anatomy and Physiology</button>
-<button class="ctab" id="tab-nur" onclick="switchCourse('nur')">CTE Nursing / Nurse Aide</button>
+  <button class="ctab a-hs" id="tab-hs" onclick="switchCourse('hs')">Health Science I</button>
+  <button class="ctab" id="tab-ap" onclick="switchCourse('ap')">Anatomy and Physiology</button>
+  <button class="ctab" id="tab-nur" onclick="switchCourse('nur')">CTE Nursing / Nurse Aide</button>
 </div>
-<div class="spanel vis" id="panel-hs"><p class="cnote">HU40 Health Science I - essential standards 1.00-4.03</p><div class="pills" id="pills-hs">
-<button class="pill active" data-val="Skeletal System">Skeletal System</button>
-<button class="pill" data-val="Muscular System">Muscular System</button>
-<button class="pill" data-val="Integumentary System">Integumentary System</button>
-<button class="pill" data-val="Digestive System">Digestive System</button>
-<button class="pill" data-val="Urinary System">Urinary System</button>
-<button class="pill" data-val="Nervous System">Nervous System</button>
-<button class="pill" data-val="Sensory System">Sensory / Special Senses</button>
-<button class="pill" data-val="Lymphatic and Immune System">Lymphatic and Immune</button>
-<button class="pill" data-val="Endocrine System">Endocrine System</button>
-<button class="pill" data-val="Reproductive System">Reproductive System</button>
-<button class="pill" data-val="Body Organization and Homeostasis">Body Organization and Homeostasis</button>
-<button class="pill" data-val="First Responder and Emergency Care">First Responder / Emergency Care</button>
-</div></div>
-<div class="spanel" id="panel-ap"><p class="cnote">Anatomy and Physiology - structural and physiological depth</p><div class="pills" id="pills-ap">
-<button class="pill active" data-val="Cells and Histology">Cells and Histology</button>
-<button class="pill" data-val="Integumentary System">Integumentary System</button>
-<button class="pill" data-val="Skeletal System">Skeletal System</button>
-<button class="pill" data-val="Muscular System">Muscular System</button>
-<button class="pill" data-val="Nervous System">Nervous System</button>
-<button class="pill" data-val="Sensory System">Sensory / Special Senses</button>
-<button class="pill" data-val="Endocrine System">Endocrine System</button>
-<button class="pill" data-val="Blood and Hematology">Blood and Hematology</button>
-<button class="pill" data-val="Cardiovascular System">Cardiovascular System</button>
-<button class="pill" data-val="Lymphatic and Immune System">Lymphatic and Immune</button>
-<button class="pill" data-val="Respiratory System">Respiratory System</button>
-<button class="pill" data-val="Digestive System">Digestive System</button>
-<button class="pill" data-val="Urinary System">Urinary System</button>
-<button class="pill" data-val="Reproductive System">Reproductive System</button>
-<button class="pill" data-val="Fluid and Acid-Base Balance">Fluid and Acid-Base Balance</button>
-<button class="pill" data-val="Metabolism and Nutrition">Metabolism and Nutrition</button>
-</div></div>
-<div class="spanel" id="panel-nur"><p class="cnote">NC Nurse Aide I (NNAAP) - Modules A-H aligned vocabulary</p><div class="pills" id="pills-nur">
-<button class="pill active" data-val="Infection Control and Safety">Infection Control and Safety</button>
-<button class="pill" data-val="Vital Signs and Measurement">Vital Signs and Measurement</button>
-<button class="pill" data-val="Medical Terminology">Medical Terminology</button>
-<button class="pill" data-val="Patient Rights and Communication">Patient Rights and Communication</button>
-<button class="pill" data-val="Personal Care and ADLs">Personal Care and ADLs</button>
-<button class="pill" data-val="Cardiovascular System">Cardiovascular System</button>
-<button class="pill" data-val="Respiratory System">Respiratory System</button>
-<button class="pill" data-val="Musculoskeletal System">Musculoskeletal System</button>
-<button class="pill" data-val="Nervous System">Nervous System</button>
-<button class="pill" data-val="Integumentary System">Integumentary System</button>
-<button class="pill" data-val="Urinary System">Urinary System</button>
-<button class="pill" data-val="Digestive System">Digestive System</button>
-<button class="pill" data-val="Endocrine System">Endocrine System</button>
-<button class="pill" data-val="Nutrition and Fluid Intake">Nutrition and Fluid Intake</button>
-</div></div>
+<div class="spanel vis" id="panel-hs">
+  <p class="cnote">HU40 Health Science I - essential standards 1.00-4.03</p>
+  <div class="pills" id="pills-hs">
+    <button class="pill active" data-course="hs" data-val="Skeletal System" onclick="selectSubject(this)">Skeletal System</button>
+    <button class="pill" data-course="hs" data-val="Muscular System" onclick="selectSubject(this)">Muscular System</button>
+    <button class="pill" data-course="hs" data-val="Integumentary System" onclick="selectSubject(this)">Integumentary System</button>
+    <button class="pill" data-course="hs" data-val="Digestive System" onclick="selectSubject(this)">Digestive System</button>
+    <button class="pill" data-course="hs" data-val="Urinary System" onclick="selectSubject(this)">Urinary System</button>
+    <button class="pill" data-course="hs" data-val="Nervous System" onclick="selectSubject(this)">Nervous System</button>
+    <button class="pill" data-course="hs" data-val="Sensory System" onclick="selectSubject(this)">Sensory / Special Senses</button>
+    <button class="pill" data-course="hs" data-val="Lymphatic and Immune System" onclick="selectSubject(this)">Lymphatic and Immune</button>
+    <button class="pill" data-course="hs" data-val="Endocrine System" onclick="selectSubject(this)">Endocrine System</button>
+    <button class="pill" data-course="hs" data-val="Reproductive System" onclick="selectSubject(this)">Reproductive System</button>
+    <button class="pill" data-course="hs" data-val="Body Organization and Homeostasis" onclick="selectSubject(this)">Body Organization and Homeostasis</button>
+    <button class="pill" data-course="hs" data-val="First Responder and Emergency Care" onclick="selectSubject(this)">First Responder / Emergency Care</button>
+  </div>
+</div>
+<div class="spanel" id="panel-ap">
+  <p class="cnote">Anatomy and Physiology - structural and physiological depth</p>
+  <div class="pills" id="pills-ap">
+    <button class="pill active" data-course="ap" data-val="Cells and Histology" onclick="selectSubject(this)">Cells and Histology</button>
+    <button class="pill" data-course="ap" data-val="Skeletal System" onclick="selectSubject(this)">Skeletal System</button>
+    <button class="pill" data-course="ap" data-val="Muscular System" onclick="selectSubject(this)">Muscular System</button>
+    <button class="pill" data-course="ap" data-val="Nervous System" onclick="selectSubject(this)">Nervous System</button>
+    <button class="pill" data-course="ap" data-val="Endocrine System" onclick="selectSubject(this)">Endocrine System</button>
+    <button class="pill" data-course="ap" data-val="Blood and Hematology" onclick="selectSubject(this)">Blood and Hematology</button>
+    <button class="pill" data-course="ap" data-val="Cardiovascular System" onclick="selectSubject(this)">Cardiovascular System</button>
+    <button class="pill" data-course="ap" data-val="Respiratory System" onclick="selectSubject(this)">Respiratory System</button>
+    <button class="pill" data-course="ap" data-val="Digestive System" onclick="selectSubject(this)">Digestive System</button>
+    <button class="pill" data-course="ap" data-val="Urinary System" onclick="selectSubject(this)">Urinary System</button>
+    <button class="pill" data-course="ap" data-val="Reproductive System" onclick="selectSubject(this)">Reproductive System</button>
+    <button class="pill" data-course="ap" data-val="Fluid and Acid-Base Balance" onclick="selectSubject(this)">Fluid and Acid-Base Balance</button>
+    <button class="pill" data-course="ap" data-val="Metabolism and Nutrition" onclick="selectSubject(this)">Metabolism and Nutrition</button>
+  </div>
+</div>
+<div class="spanel" id="panel-nur">
+  <p class="cnote">NC Nurse Aide I (NNAAP) - Modules A-H aligned vocabulary</p>
+  <div class="pills" id="pills-nur">
+    <button class="pill active" data-course="nur" data-val="Infection Control and Safety" onclick="selectSubject(this)">Infection Control and Safety</button>
+    <button class="pill" data-course="nur" data-val="Vital Signs and Measurement" onclick="selectSubject(this)">Vital Signs and Measurement</button>
+    <button class="pill" data-course="nur" data-val="Medical Terminology" onclick="selectSubject(this)">Medical Terminology</button>
+    <button class="pill" data-course="nur" data-val="Patient Rights and Communication" onclick="selectSubject(this)">Patient Rights and Communication</button>
+    <button class="pill" data-course="nur" data-val="Personal Care and ADLs" onclick="selectSubject(this)">Personal Care and ADLs</button>
+    <button class="pill" data-course="nur" data-val="Cardiovascular System" onclick="selectSubject(this)">Cardiovascular System</button>
+    <button class="pill" data-course="nur" data-val="Respiratory System" onclick="selectSubject(this)">Respiratory System</button>
+    <button class="pill" data-course="nur" data-val="Musculoskeletal System" onclick="selectSubject(this)">Musculoskeletal System</button>
+    <button class="pill" data-course="nur" data-val="Nervous System" onclick="selectSubject(this)">Nervous System</button>
+    <button class="pill" data-course="nur" data-val="Integumentary System" onclick="selectSubject(this)">Integumentary System</button>
+    <button class="pill" data-course="nur" data-val="Urinary System" onclick="selectSubject(this)">Urinary System</button>
+    <button class="pill" data-course="nur" data-val="Digestive System" onclick="selectSubject(this)">Digestive System</button>
+    <button class="pill" data-course="nur" data-val="Endocrine System" onclick="selectSubject(this)">Endocrine System</button>
+    <button class="pill" data-course="nur" data-val="Nutrition and Fluid Intake" onclick="selectSubject(this)">Nutrition and Fluid Intake</button>
+  </div>
+</div>
 <div class="sel-disp" id="selDisp"></div>
 </div>
 
 <div class="panel">
 <div class="step-hdr"><div class="step-n">2</div><div class="step-lbl">Select vocabulary terms</div><div class="step-sub">NC standards-based</div></div>
-<div class="vocab-bar"><div class="vocab-meta" id="vocabMeta">Select a subject above</div><div class="vbtns"><button class="vbtn" onclick="selectAll()">Select all</button><button class="vbtn" onclick="deselectAll()">Deselect all</button></div></div>
+<div class="vocab-bar">
+  <div class="vocab-meta" id="vocabMeta">Select a subject above to load terms</div>
+  <div class="vbtns">
+    <button class="vbtn" onclick="selectAll()">Select all</button>
+    <button class="vbtn" onclick="deselectAll()">Deselect all</button>
+  </div>
+</div>
 <div class="term-grid" id="termGrid"></div>
 <div class="sel-count" id="selCount"></div>
-<div class="add-wrap"><span class="add-lbl">Add your own terms - one per line</span><textarea class="add-ta" id="addInput" placeholder="Add extra terms here..." oninput="updateSelCount()"></textarea><div class="add-hint">Included alongside checked terms above.</div></div>
+<div class="add-wrap">
+  <span class="add-lbl">Add your own terms (one per line)</span>
+  <textarea class="add-ta" id="addInput" placeholder="Add extra terms here..." oninput="updateSelCount()"></textarea>
+  <div class="add-hint">These will be included alongside the checked terms above.</div>
+</div>
 </div>
 
 <div class="panel">
 <div class="step-hdr"><div class="step-n">3</div><div class="step-lbl">Settings</div></div>
 <span class="sec-lbl">Language mode</span>
-<div class="tog-row c3" id="langTog">
-<button class="tog active" data-val="bilingual" onclick="setLang('bilingual')"><span class="t">Bilingual</span><span class="d">English + Spanish on cards</span></button>
-<button class="tog" data-val="english" onclick="setLang('english')"><span class="t">English only</span><span class="d">Single language</span></button>
-<button class="tog" data-val="spanish" onclick="setLang('spanish')"><span class="t">Spanish only</span><span class="d">Single language</span></button>
+<div class="tog-row c3">
+  <button class="tog active" id="lang-bilingual" onclick="setLang('bilingual')"><span class="t">Bilingual</span><span class="d">English + Spanish</span></button>
+  <button class="tog" id="lang-english" onclick="setLang('english')"><span class="t">English only</span><span class="d">Single language</span></button>
+  <button class="tog" id="lang-spanish" onclick="setLang('spanish')"><span class="t">Spanish only</span><span class="d">Single language</span></button>
 </div>
 <span class="sec-lbl">Difficulty level</span>
-<div class="ogrid c3" id="diffGrid">
-<div class="gopt active" data-val="basic"><span class="gi">&#128cubed;</span><span class="gt">Basic</span><span class="gd">Introductory</span></div>
-<div class="gopt" data-val="intermediate"><span class="gi">&#128218;</span><span class="gt">Intermediate</span><span class="gd">Grade-level</span></div>
-<div class="gopt" data-val="advanced"><span class="gi">&#128217;</span><span class="gt">Advanced</span><span class="gd">Clinical / AP</span></div>
+<div class="ogrid c3">
+  <div class="gopt active" id="diff-basic" onclick="setDiff('basic')"><span class="gi">&#128217;</span><span class="gt">Basic</span><span class="gd">Introductory</span></div>
+  <div class="gopt" id="diff-intermediate" onclick="setDiff('intermediate')"><span class="gi">&#128218;</span><span class="gt">Intermediate</span><span class="gd">Grade-level</span></div>
+  <div class="gopt" id="diff-advanced" onclick="setDiff('advanced')"><span class="gi">&#128216;</span><span class="gt">Advanced</span><span class="gd">Clinical / AP</span></div>
 </div>
 <span class="sec-lbl">Visual theme</span>
-<div class="ogrid c4" id="themeGrid">
-<div class="gopt active" data-val="medical-clean"><span class="gi">&#127973;</span><span class="gt">Medical clean</span><span class="gd">White and teal</span></div>
-<div class="gopt" data-val="nature-green"><span class="gi">&#127807;</span><span class="gt">Nature green</span><span class="gd">Soft greens</span></div>
-<div class="gopt" data-val="bold-navy"><span class="gi">&#128300;</span><span class="gt">Bold navy</span><span class="gd">Deep blue</span></div>
-<div class="gopt" data-val="warm-coral"><span class="gi">&#129658;</span><span class="gt">Warm coral</span><span class="gd">Warm tones</span></div>
+<div class="ogrid c4">
+  <div class="gopt active" id="theme-medical-clean" onclick="setTheme('medical-clean')"><span class="gi">&#127973;</span><span class="gt">Medical clean</span><span class="gd">White and teal</span></div>
+  <div class="gopt" id="theme-nature-green" onclick="setTheme('nature-green')"><span class="gi">&#127807;</span><span class="gt">Nature green</span><span class="gd">Soft greens</span></div>
+  <div class="gopt" id="theme-bold-navy" onclick="setTheme('bold-navy')"><span class="gi">&#128300;</span><span class="gt">Bold navy</span><span class="gd">Deep blue</span></div>
+  <div class="gopt" id="theme-warm-coral" onclick="setTheme('warm-coral')"><span class="gi">&#129658;</span><span class="gt">Warm coral</span><span class="gd">Warm tones</span></div>
 </div>
 </div>
 
 <div class="panel">
 <div class="step-hdr"><div class="step-n">4</div><div class="step-lbl">Choose activity type</div></div>
-<div class="ogrid c2" id="outputGrid">
-<div class="gopt active" data-val="flashcard"><span class="gi">&#127183;</span><span class="gt">Flashcard deck</span><span class="gd">Flip cards - term, Spanish, definition</span></div>
-<div class="gopt" data-val="memory"><span class="gi">&#129513;</span><span class="gt">Memory match game</span><span class="gd">Flip pairs - find the match</span></div>
+<div class="ogrid c2">
+  <div class="gopt active" id="mode-flashcard" onclick="setMode('flashcard')"><span class="gi">&#127183;</span><span class="gt">Flashcard deck</span><span class="gd">Flip cards - term, Spanish, definition</span></div>
+  <div class="gopt" id="mode-memory" onclick="setMode('memory')"><span class="gi">&#129513;</span><span class="gt">Memory match game</span><span class="gd">Flip pairs - find the match</span></div>
 </div>
 <div id="flashcardOpts">
-<span class="sec-lbl" style="margin-top:4px;">Interactive features</span>
-<div class="ogrid c4" id="featGrid">
-<div class="gopt active feat" data-val="progress"><span class="gi">&#128202;</span><span class="gt">Progress</span><span class="gd">Card X of Y</span></div>
-<div class="gopt active feat" data-val="shuffle"><span class="gi">&#128256;</span><span class="gt">Shuffle</span><span class="gd">Randomize order</span></div>
-<div class="gopt active feat" data-val="score"><span class="gi">&#11088;</span><span class="gt">Know / Learning</span><span class="gd">Self-assessment</span></div>
-<div class="gopt feat" data-val="keyboard"><span class="gi">&#9000;&#65039;</span><span class="gt">Keyboard nav</span><span class="gd">Arrows + spacebar</span></div>
-</div>
+  <span class="sec-lbl">Interactive features</span>
+  <div class="ogrid c4">
+    <div class="gopt active" id="feat-progress" onclick="toggleFeat('progress')"><span class="gi">&#128202;</span><span class="gt">Progress</span><span class="gd">Card X of Y</span></div>
+    <div class="gopt active" id="feat-shuffle" onclick="toggleFeat('shuffle')"><span class="gi">&#128256;</span><span class="gt">Shuffle</span><span class="gd">Randomize order</span></div>
+    <div class="gopt active" id="feat-score" onclick="toggleFeat('score')"><span class="gi">&#11088;</span><span class="gt">Know / Learning</span><span class="gd">Self-assessment</span></div>
+    <div class="gopt" id="feat-keyboard" onclick="toggleFeat('keyboard')"><span class="gi">&#9000;&#65039;</span><span class="gt">Keyboard nav</span><span class="gd">Arrows + spacebar</span></div>
+  </div>
 </div>
 <div class="mem-info" id="memOpts">
-<span class="sec-lbl">Match pair type</span>
-<div class="tog-row c2" id="matchTog">
-<button class="tog active" data-val="term-spanish" onclick="setMatch('term-spanish')"><span class="t">Term and Spanish</span><span class="d">Match English to Spanish</span></button>
-<button class="tog" data-val="term-definition" onclick="setMatch('term-definition')"><span class="t">Term and Definition</span><span class="d">Match term to definition</span></button>
-</div>
-<div class="mem-tip">Memory games work best with 8-12 pairs. More than 12 creates a very large grid on Chromebook screens.</div>
+  <span class="sec-lbl">Match pair type</span>
+  <div class="tog-row c2">
+    <button class="tog active" id="match-term-spanish" onclick="setMatch('term-spanish')"><span class="t">Term and Spanish</span><span class="d">Match English to Spanish</span></button>
+    <button class="tog" id="match-term-definition" onclick="setMatch('term-definition')"><span class="t">Term and Definition</span><span class="d">Match term to definition</span></button>
+  </div>
+  <div class="mem-tip">Memory games work best with 8-12 pairs. More than 12 creates a very large grid on Chromebook screens.</div>
 </div>
 </div>
 
-<button class="gen-btn" id="genBtn" onclick="generate()">
-<span id="genIcon">&#10022;</span><span id="genTxt">Generate Flashcard Deck Prompt</span>
+<button class="gen-btn" onclick="generate()">
+  <span id="genIcon">&#10022;</span> <span id="genTxt">Generate Flashcard Deck Prompt</span>
 </button>
 
 <div class="out-sec" id="outSec"></div>
@@ -228,96 +249,390 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
 <div class="footer"><div class="footer-text">Built for <strong>NC CTE Health Science teachers</strong> at Ashe County High School and beyond - Aligned to NC DPI CTE standards - No API key required</div></div>
 
 <script>
-const VOCAB={
-hs:{"Skeletal System":["Axial skeleton","Appendicular skeleton","Compact bone","Spongy bone","Periosteum","Medullary cavity","Hematopoiesis","Epiphysis","Diaphysis","Articular cartilage","Ligament","Tendon","Ossification","Red marrow","Osteoporosis","Fracture","Scoliosis","Osteoarthritis","Osteoblast","Osteoclast"],"Muscular System":["Skeletal muscle","Smooth muscle","Cardiac muscle","Tendon","Contractibility","Extensibility","Elasticity","Excitability","Atrophy","Hypertrophy","Origin","Insertion","Voluntary","Involuntary","Fascia","Muscular dystrophy","Strain","Hernia","Spasm","Tendonitis"],"Integumentary System":["Epidermis","Dermis","Hypodermis","Keratinocyte","Melanocyte","Sebaceous gland","Sudoriferous gland","Hair follicle","Nail matrix","Vitamin D synthesis","Acne","Dermatitis","Melanoma","Eczema","Alopecia","Pressure ulcer","First-degree burn","Second-degree burn","Third-degree burn","Wound healing"],"Digestive System":["Peristalsis","Bolus","Chyme","Enzyme","Villus","Liver","Gallbladder","Pancreas","Appendix","Colon","Esophagus","Stomach","Small intestine","Large intestine","Bile","Cholecystitis","GERD","Gastroenteritis","Hepatitis","Cholelithiasis"],"Urinary System":["Kidney","Nephron","Glomerulus","Filtration","Reabsorption","Ureter","Urethra","Bladder","Urine","Dialysis","UTI","Kidney stones","Renal failure","Electrolyte","Homeostasis"],"Nervous System":["Neuron","Axon","Dendrite","Synapse","Neurotransmitter","Central nervous system","Peripheral nervous system","Reflex","Meninges","Spinal cord","Cerebrum","Cerebellum","Brain stem","Multiple sclerosis","Epilepsy","Parkinson disease","Stroke","Concussion"],"Sensory System":["Cornea","Iris","Pupil","Retina","Optic nerve","Cochlea","Ossicles","Eardrum","Olfactory nerve","Taste buds","Mechanoreceptors","Photoreceptors","Rods and cones","Glaucoma","Cataracts","Hearing loss","Tinnitus","Nystagmus"],"Lymphatic and Immune System":["Lymph node","Lymphocyte","T-cell","B-cell","Antibody","Antigen","Immunity","Vaccine","Pathogen","Spleen","Thymus","Lymph","HIV/AIDS","Allergy","Autoimmune disease","Inflammation","Phagocytosis","Lymphoma"],"Endocrine System":["Hormone","Pituitary gland","Thyroid gland","Adrenal gland","Pancreas","Insulin","Glucagon","Feedback loop","Target organ","Diabetes mellitus","Hyperthyroidism","Hypothyroidism","Gigantism","Dwarfism","Goiter","Cortisol","Adrenaline","Homeostasis"],"Reproductive System":["Ovary","Uterus","Fallopian tube","Cervix","Testes","Sperm","Ovum","Fertilization","Menstrual cycle","Estrogen","Progesterone","Testosterone","Ovulation","Gamete","Embryo","Fetus","Placenta","STI"],"Body Organization and Homeostasis":["Cell","Tissue","Organ","Organ system","Organism","Homeostasis","Negative feedback","Positive feedback","Anatomical position","Sagittal plane","Frontal plane","Transverse plane","Proximal","Distal","Anterior","Posterior","Superior","Inferior","Medial","Lateral"],"First Responder and Emergency Care":["CPR","AED","Airway","Breathing","Circulation","Triage","Shock","Hemorrhage","Anaphylaxis","Seizure","Stroke","Heart attack","Good Samaritan law","Universal precautions","Recovery position","Splinting","Heimlich maneuver","Tourniquet"]},
-ap:{"Cells and Histology":["Cell membrane","Phospholipid bilayer","Nucleus","Mitochondria","Endoplasmic reticulum","Ribosome","Golgi apparatus","Cytoplasm","Diffusion","Osmosis","Active transport","Mitosis","Meiosis","Epithelial tissue","Connective tissue","Muscle tissue","Nervous tissue","Extracellular matrix","Cell cycle","Apoptosis"],"Integumentary System":["Stratum corneum","Stratum basale","Melanin","Keratin","Sebaceous gland","Eccrine gland","Apocrine gland","Arrector pili","Meissner corpuscle","Pacinian corpuscle","Langerhans cell","Dermal papillae","Hypodermis","Thermoregulation","Vitamin D synthesis"],"Skeletal System":["Ossification","Osteoblast","Osteoclast","Osteocyte","Trabeculae","Red marrow","Yellow marrow","Synovial joint","Ball-and-socket joint","Hinge joint","Intervertebral disc","Endochondral ossification","Intramembranous ossification","Bone remodeling","Epiphyseal plate","Bursae","Axial skeleton","Appendicular skeleton"],"Muscular System":["Sarcomere","Actin","Myosin","Neuromuscular junction","Motor unit","Sliding filament theory","Action potential","Acetylcholine","Muscle fatigue","Oxygen debt","Fast-twitch fiber","Slow-twitch fiber","Isometric contraction","Isotonic contraction","Flexor","Extensor","Synergist","Antagonist","Agonist","Proprioceptor"],"Nervous System":["Resting membrane potential","Action potential","Saltatory conduction","Myelin sheath","Schwann cell","Oligodendrocyte","Synapse","Neurotransmitter","Dopamine","Serotonin","Reflex arc","Autonomic nervous system","Sympathetic","Parasympathetic","Blood-brain barrier","Limbic system","Neuroplasticity","Ganglion"],"Sensory System":["Sensory receptor","Transduction","Accommodation","Visual acuity","Rods","Cones","Optic chiasm","Aqueous humor","Vitreous humor","Organ of Corti","Vestibular system","Otolith","Semicircular canal","Chemoreceptor","Proprioception","Referred pain","Two-point discrimination"],"Endocrine System":["Steroid hormone","Peptide hormone","Second messenger","Receptor","Hypothalamus","Pituitary gland","Adrenal cortex","Adrenal medulla","Thyroid gland","Parathyroid gland","Pancreatic islets","Pineal gland","Negative feedback","Positive feedback","Tropic hormone","Diabetes insipidus","Cushing syndrome","Addison disease","Acromegaly"],"Blood and Hematology":["Plasma","Erythrocyte","Leukocyte","Platelet","Hemoglobin","Blood type","ABO system","Rh factor","Hemostasis","Coagulation","Anemia","Leukemia","Sickle cell disease","Thrombosis","Hematocrit","Serum","Fibrin","Prothrombin","Erythropoiesis","Bone marrow"],"Cardiovascular System":["Atrium","Ventricle","Aorta","Pulmonary artery","Vena cava","Sinoatrial node","Atrioventricular node","Cardiac cycle","Systole","Diastole","Blood pressure","Arteriole","Capillary","Venule","Coronary artery","Stroke volume","Cardiac output","Atherosclerosis","Hypertension","Myocardial infarction"],"Lymphatic and Immune System":["Innate immunity","Adaptive immunity","T-lymphocyte","B-lymphocyte","Natural killer cell","Cytokine","Interleukin","Complement system","Antigen-presenting cell","MHC molecule","Clonal selection","Memory cell","Passive immunity","Active immunity","Hypersensitivity","Lymphedema","MALT"],"Respiratory System":["Alveolus","Bronchiole","Bronchus","Trachea","Larynx","Diaphragm","Pleural cavity","Gas exchange","Oxyhemoglobin","Tidal volume","Vital capacity","Residual volume","Surfactant","Bohr effect","Chemoreceptor","Asthma","COPD","Pneumonia"],"Digestive System":["Salivary amylase","Pepsin","Lipase","Trypsin","Brush border","Lacteal","Portal circulation","Mucosa","Submucosa","Muscularis","Serosa","Chylomicron","Bile salt","Intrinsic factor","Gastrin","Secretin","CCK"],"Urinary System":["Renal cortex","Renal medulla","Renal pelvis","Loop of Henle","Proximal convoluted tubule","Distal convoluted tubule","Collecting duct","Glomerular filtration rate","Tubular secretion","Countercurrent mechanism","Aldosterone","ADH","Renin-angiotensin system","Creatinine","BUN"],"Reproductive System":["Spermatogenesis","Oogenesis","Follicle-stimulating hormone","LH","Corpus luteum","Follicular phase","Luteal phase","Implantation","Human chorionic gonadotropin","Placenta","Umbilical cord","Acrosome reaction","Capacitation","Zygote","Morula","Blastocyst"],"Fluid and Acid-Base Balance":["Intracellular fluid","Extracellular fluid","Interstitial fluid","Osmolarity","Electrolyte","Sodium","Potassium","Calcium","Phosphate","pH","Acidosis","Alkalosis","Buffer system","Bicarbonate","Respiratory compensation","Metabolic compensation","Edema","Dehydration"],"Metabolism and Nutrition":["Metabolism","Anabolism","Catabolism","ATP","Glycolysis","Krebs cycle","Electron transport chain","Gluconeogenesis","Glycogenesis","Lipolysis","Beta oxidation","BMR","Macronutrient","Micronutrient","Essential amino acid","Saturated fat","Unsaturated fat","Fiber","Vitamins"]},
-nur:{"Infection Control and Safety":["Pathogen","Standard precautions","PPE","Hand hygiene","Isolation","Chain of infection","Reservoir","Mode of transmission","Susceptible host","Medical asepsis","Surgical asepsis","MRSA","C. difficile","Disinfection","Sterilization","Contact precautions","Droplet precautions","Airborne precautions","Nosocomial infection"],"Vital Signs and Measurement":["Temperature","Pulse","Respiration","Blood pressure","Pain scale","Thermometer","Sphygmomanometer","Stethoscope","Apical pulse","Bradycardia","Tachycardia","Hypertension","Hypotension","Pyrexia","Intake and output","Orthostatic hypotension","Dyspnea","Pulse oximetry","SpO2","Normal vital sign ranges"],"Medical Terminology":["Prefix","Suffix","Root word","Anterior","Posterior","Lateral","Medial","Proximal","Distal","Superior","Inferior","Dorsal","Ventral","Abduction","Adduction","Flexion","Extension","Prone","Supine","Fowler position"],"Patient Rights and Communication":["Informed consent","Advance directive","HIPAA","Ombudsman","Abuse","Neglect","Exploitation","Active listening","Therapeutic communication","Objective data","Subjective data","Confidentiality","Dignity","Resident rights","Grievance","DNR","Power of attorney","Non-verbal communication"],"Personal Care and ADLs":["Ambulation","Range of motion","Body mechanics","Transfer belt","Decubitus ulcer","Incontinence","Catheter","Perineal care","Oral hygiene","Aspiration","Bed bath","Positioning","Contracture","Restorative care","Prosthesis","Assistive device","Splint","Braden scale","Skin integrity"],"Cardiovascular System":["Heart","Artery","Vein","Capillary","Blood pressure","Pulse","Hypertension","Heart failure","Angina","Myocardial infarction","Edema","Cyanosis","Pacemaker","Atherosclerosis","Deep vein thrombosis","Congestive heart failure","Cardiac arrest"],"Respiratory System":["Lung","Airway","Oxygen","Carbon dioxide","Respiration","Dyspnea","Apnea","Hypoxia","Cyanosis","Nebulizer","Incentive spirometer","Tracheostomy","Sputum","COPD","Pneumonia","Asthma","Tuberculosis","Aspiration pneumonia","Pulse oximetry"],"Musculoskeletal System":["Bone","Joint","Muscle","Tendon","Ligament","Range of motion","Flexion","Extension","Abduction","Adduction","Ambulation","Gait","Walker","Cane","Crutches","Fracture","Osteoporosis","Arthritis","Contracture","Body mechanics"],"Nervous System":["Brain","Spinal cord","Neuron","Reflex","Cognition","Orientation","Confusion","Dementia","Alzheimer disease","Stroke","Aphasia","Hemiplegia","Seizure","Paralysis","Parkinson disease","Multiple sclerosis","Coma","Glasgow Coma Scale"],"Integumentary System":["Skin","Epidermis","Dermis","Wound","Decubitus ulcer","Stage I pressure injury","Stage II pressure injury","Stage III pressure injury","Stage IV pressure injury","Wound infection","Drainage","Edema","Jaundice","Cyanosis","Turgor","Rash","Lesion","Braden scale"],"Urinary System":["Kidney","Ureter","Bladder","Urethra","Urine","Urinary catheter","Foley catheter","UTI","Intake and output","Urinary incontinence","Urinary retention","Hematuria","Dysuria","Dialysis","Renal failure","Perineal care"],"Digestive System":["Mouth","Esophagus","Stomach","Small intestine","Large intestine","Bowel movement","Constipation","Diarrhea","Nausea","Vomiting","Ostomy","Colostomy","Ileostomy","NPO","Nasogastric tube","Dysphagia","Aspiration","Enema","Fecal impaction"],"Endocrine System":["Hormone","Diabetes mellitus","Insulin","Blood glucose","Hypoglycemia","Hyperglycemia","Glucometer","Thyroid gland","Hypothyroidism","Hyperthyroidism","Adrenal gland","Cortisol","Pituitary gland","Diabetic ketoacidosis","Signs of hypoglycemia","Signs of hyperglycemia"],"Nutrition and Fluid Intake":["Calorie","Carbohydrate","Protein","Fat","Fiber","Vitamin","Mineral","Hydration","Dehydration","Dysphagia","Thickened liquids","Therapeutic diet","Low sodium diet","Diabetic diet","Aspiration precautions","Feeding assistance","Malnutrition","Intake and output","NPO"]}
+var VOCAB = {
+  hs: {
+    "Skeletal System": ["Axial skeleton","Appendicular skeleton","Compact bone","Spongy bone","Periosteum","Medullary cavity","Hematopoiesis","Epiphysis","Diaphysis","Articular cartilage","Ligament","Tendon","Ossification","Red marrow","Osteoporosis","Fracture","Scoliosis","Osteoarthritis","Osteoblast","Osteoclast"],
+    "Muscular System": ["Skeletal muscle","Smooth muscle","Cardiac muscle","Tendon","Contractibility","Extensibility","Elasticity","Excitability","Atrophy","Hypertrophy","Origin","Insertion","Voluntary","Involuntary","Fascia","Muscular dystrophy","Strain","Hernia","Spasm","Tendonitis"],
+    "Integumentary System": ["Epidermis","Dermis","Hypodermis","Keratinocyte","Melanocyte","Sebaceous gland","Sudoriferous gland","Hair follicle","Nail matrix","Vitamin D synthesis","Acne","Dermatitis","Melanoma","Eczema","Alopecia","Pressure ulcer","First-degree burn","Second-degree burn","Third-degree burn","Wound healing"],
+    "Digestive System": ["Peristalsis","Bolus","Chyme","Enzyme","Villus","Liver","Gallbladder","Pancreas","Appendix","Colon","Esophagus","Stomach","Small intestine","Large intestine","Bile","Cholecystitis","GERD","Gastroenteritis","Hepatitis","Cholelithiasis"],
+    "Urinary System": ["Kidney","Nephron","Glomerulus","Filtration","Reabsorption","Ureter","Urethra","Bladder","Urine","Dialysis","UTI","Kidney stones","Renal failure","Electrolyte","Homeostasis"],
+    "Nervous System": ["Neuron","Axon","Dendrite","Synapse","Neurotransmitter","Central nervous system","Peripheral nervous system","Reflex","Meninges","Spinal cord","Cerebrum","Cerebellum","Brain stem","Multiple sclerosis","Epilepsy","Parkinson disease","Stroke","Concussion"],
+    "Sensory System": ["Cornea","Iris","Pupil","Retina","Optic nerve","Cochlea","Ossicles","Eardrum","Olfactory nerve","Taste buds","Mechanoreceptors","Photoreceptors","Rods and cones","Glaucoma","Cataracts","Hearing loss","Tinnitus","Nystagmus"],
+    "Lymphatic and Immune System": ["Lymph node","Lymphocyte","T-cell","B-cell","Antibody","Antigen","Immunity","Vaccine","Pathogen","Spleen","Thymus","Lymph","HIV/AIDS","Allergy","Autoimmune disease","Inflammation","Phagocytosis","Lymphoma"],
+    "Endocrine System": ["Hormone","Pituitary gland","Thyroid gland","Adrenal gland","Pancreas","Insulin","Glucagon","Feedback loop","Target organ","Diabetes mellitus","Hyperthyroidism","Hypothyroidism","Gigantism","Dwarfism","Goiter","Cortisol","Adrenaline","Homeostasis"],
+    "Reproductive System": ["Ovary","Uterus","Fallopian tube","Cervix","Testes","Sperm","Ovum","Fertilization","Menstrual cycle","Estrogen","Progesterone","Testosterone","Ovulation","Gamete","Embryo","Fetus","Placenta","STI"],
+    "Body Organization and Homeostasis": ["Cell","Tissue","Organ","Organ system","Organism","Homeostasis","Negative feedback","Positive feedback","Anatomical position","Sagittal plane","Frontal plane","Transverse plane","Proximal","Distal","Anterior","Posterior","Superior","Inferior","Medial","Lateral"],
+    "First Responder and Emergency Care": ["CPR","AED","Airway","Breathing","Circulation","Triage","Shock","Hemorrhage","Anaphylaxis","Seizure","Stroke","Heart attack","Good Samaritan law","Universal precautions","Recovery position","Splinting","Heimlich maneuver","Tourniquet"]
+  },
+  ap: {
+    "Cells and Histology": ["Cell membrane","Phospholipid bilayer","Nucleus","Mitochondria","Endoplasmic reticulum","Ribosome","Golgi apparatus","Cytoplasm","Diffusion","Osmosis","Active transport","Mitosis","Meiosis","Epithelial tissue","Connective tissue","Muscle tissue","Nervous tissue","Extracellular matrix","Cell cycle","Apoptosis"],
+    "Skeletal System": ["Ossification","Osteoblast","Osteoclast","Osteocyte","Trabeculae","Red marrow","Yellow marrow","Synovial joint","Ball-and-socket joint","Hinge joint","Intervertebral disc","Endochondral ossification","Intramembranous ossification","Bone remodeling","Epiphyseal plate","Bursae","Axial skeleton","Appendicular skeleton"],
+    "Muscular System": ["Sarcomere","Actin","Myosin","Neuromuscular junction","Motor unit","Sliding filament theory","Action potential","Acetylcholine","Muscle fatigue","Oxygen debt","Fast-twitch fiber","Slow-twitch fiber","Isometric contraction","Isotonic contraction","Flexor","Extensor","Synergist","Antagonist","Agonist","Proprioceptor"],
+    "Nervous System": ["Resting membrane potential","Action potential","Saltatory conduction","Myelin sheath","Schwann cell","Oligodendrocyte","Synapse","Neurotransmitter","Dopamine","Serotonin","Reflex arc","Autonomic nervous system","Sympathetic","Parasympathetic","Blood-brain barrier","Limbic system","Neuroplasticity","Ganglion"],
+    "Endocrine System": ["Steroid hormone","Peptide hormone","Second messenger","Receptor","Hypothalamus","Pituitary gland","Adrenal cortex","Adrenal medulla","Thyroid gland","Parathyroid gland","Pancreatic islets","Pineal gland","Negative feedback","Positive feedback","Tropic hormone","Diabetes insipidus","Cushing syndrome","Addison disease","Acromegaly"],
+    "Blood and Hematology": ["Plasma","Erythrocyte","Leukocyte","Platelet","Hemoglobin","Blood type","ABO system","Rh factor","Hemostasis","Coagulation","Anemia","Leukemia","Sickle cell disease","Thrombosis","Hematocrit","Serum","Fibrin","Prothrombin","Erythropoiesis","Bone marrow"],
+    "Cardiovascular System": ["Atrium","Ventricle","Aorta","Pulmonary artery","Vena cava","Sinoatrial node","Atrioventricular node","Cardiac cycle","Systole","Diastole","Blood pressure","Arteriole","Capillary","Venule","Coronary artery","Stroke volume","Cardiac output","Atherosclerosis","Hypertension","Myocardial infarction"],
+    "Respiratory System": ["Alveolus","Bronchiole","Bronchus","Trachea","Larynx","Diaphragm","Pleural cavity","Gas exchange","Oxyhemoglobin","Tidal volume","Vital capacity","Residual volume","Surfactant","Bohr effect","Chemoreceptor","Asthma","COPD","Pneumonia"],
+    "Digestive System": ["Salivary amylase","Pepsin","Lipase","Trypsin","Brush border","Lacteal","Portal circulation","Mucosa","Submucosa","Muscularis","Serosa","Chylomicron","Bile salt","Intrinsic factor","Gastrin","Secretin","CCK"],
+    "Urinary System": ["Renal cortex","Renal medulla","Renal pelvis","Loop of Henle","Proximal convoluted tubule","Distal convoluted tubule","Collecting duct","Glomerular filtration rate","Tubular secretion","Countercurrent mechanism","Aldosterone","ADH","Renin-angiotensin system","Creatinine","BUN"],
+    "Reproductive System": ["Spermatogenesis","Oogenesis","Follicle-stimulating hormone","LH","Corpus luteum","Follicular phase","Luteal phase","Implantation","Human chorionic gonadotropin","Placenta","Umbilical cord","Acrosome reaction","Capacitation","Zygote","Morula","Blastocyst"],
+    "Fluid and Acid-Base Balance": ["Intracellular fluid","Extracellular fluid","Interstitial fluid","Osmolarity","Electrolyte","Sodium","Potassium","Calcium","Phosphate","pH","Acidosis","Alkalosis","Buffer system","Bicarbonate","Respiratory compensation","Metabolic compensation","Edema","Dehydration"],
+    "Metabolism and Nutrition": ["Metabolism","Anabolism","Catabolism","ATP","Glycolysis","Krebs cycle","Electron transport chain","Gluconeogenesis","Glycogenesis","Lipolysis","Beta oxidation","BMR","Macronutrient","Micronutrient","Essential amino acid","Saturated fat","Unsaturated fat","Fiber","Vitamins"]
+  },
+  nur: {
+    "Infection Control and Safety": ["Pathogen","Standard precautions","PPE","Hand hygiene","Isolation","Chain of infection","Reservoir","Mode of transmission","Susceptible host","Medical asepsis","Surgical asepsis","MRSA","C. difficile","Disinfection","Sterilization","Contact precautions","Droplet precautions","Airborne precautions","Nosocomial infection"],
+    "Vital Signs and Measurement": ["Temperature","Pulse","Respiration","Blood pressure","Pain scale","Thermometer","Sphygmomanometer","Stethoscope","Apical pulse","Bradycardia","Tachycardia","Hypertension","Hypotension","Pyrexia","Intake and output","Orthostatic hypotension","Dyspnea","Pulse oximetry","SpO2","Normal vital sign ranges"],
+    "Medical Terminology": ["Prefix","Suffix","Root word","Anterior","Posterior","Lateral","Medial","Proximal","Distal","Superior","Inferior","Dorsal","Ventral","Abduction","Adduction","Flexion","Extension","Prone","Supine","Fowler position"],
+    "Patient Rights and Communication": ["Informed consent","Advance directive","HIPAA","Ombudsman","Abuse","Neglect","Exploitation","Active listening","Therapeutic communication","Objective data","Subjective data","Confidentiality","Dignity","Resident rights","Grievance","DNR","Power of attorney","Non-verbal communication"],
+    "Personal Care and ADLs": ["Ambulation","Range of motion","Body mechanics","Transfer belt","Decubitus ulcer","Incontinence","Catheter","Perineal care","Oral hygiene","Aspiration","Bed bath","Positioning","Contracture","Restorative care","Prosthesis","Assistive device","Splint","Braden scale","Skin integrity"],
+    "Cardiovascular System": ["Heart","Artery","Vein","Capillary","Blood pressure","Pulse","Hypertension","Heart failure","Angina","Myocardial infarction","Edema","Cyanosis","Pacemaker","Atherosclerosis","Deep vein thrombosis","Congestive heart failure","Cardiac arrest"],
+    "Respiratory System": ["Lung","Airway","Oxygen","Carbon dioxide","Respiration","Dyspnea","Apnea","Hypoxia","Cyanosis","Nebulizer","Incentive spirometer","Tracheostomy","Sputum","COPD","Pneumonia","Asthma","Tuberculosis","Aspiration pneumonia","Pulse oximetry"],
+    "Musculoskeletal System": ["Bone","Joint","Muscle","Tendon","Ligament","Range of motion","Flexion","Extension","Abduction","Adduction","Ambulation","Gait","Walker","Cane","Crutches","Fracture","Osteoporosis","Arthritis","Contracture","Body mechanics"],
+    "Nervous System": ["Brain","Spinal cord","Neuron","Reflex","Cognition","Orientation","Confusion","Dementia","Alzheimer disease","Stroke","Aphasia","Hemiplegia","Seizure","Paralysis","Parkinson disease","Multiple sclerosis","Coma","Glasgow Coma Scale"],
+    "Integumentary System": ["Skin","Epidermis","Dermis","Wound","Decubitus ulcer","Stage I pressure injury","Stage II pressure injury","Stage III pressure injury","Stage IV pressure injury","Wound infection","Drainage","Edema","Jaundice","Cyanosis","Turgor","Rash","Lesion","Braden scale"],
+    "Urinary System": ["Kidney","Ureter","Bladder","Urethra","Urine","Urinary catheter","Foley catheter","UTI","Intake and output","Urinary incontinence","Urinary retention","Hematuria","Dysuria","Dialysis","Renal failure","Perineal care"],
+    "Digestive System": ["Mouth","Esophagus","Stomach","Small intestine","Large intestine","Bowel movement","Constipation","Diarrhea","Nausea","Vomiting","Ostomy","Colostomy","Ileostomy","NPO","Nasogastric tube","Dysphagia","Aspiration","Enema","Fecal impaction"],
+    "Endocrine System": ["Hormone","Diabetes mellitus","Insulin","Blood glucose","Hypoglycemia","Hyperglycemia","Glucometer","Thyroid gland","Hypothyroidism","Hyperthyroidism","Adrenal gland","Cortisol","Pituitary gland","Diabetic ketoacidosis","Signs of hypoglycemia","Signs of hyperglycemia"],
+    "Nutrition and Fluid Intake": ["Calorie","Carbohydrate","Protein","Fat","Fiber","Vitamin","Mineral","Hydration","Dehydration","Dysphagia","Thickened liquids","Therapeutic diet","Low sodium diet","Diabetic diet","Aspiration precautions","Feeding assistance","Malnutrition","Intake and output","NPO"]
+  }
 };
 
-const THEMES={
-'medical-clean':'white background, teal (#0F6E56) header and accent colors, clean professional medical look',
-'nature-green':'sage green (#E8F5E9) background, forest green (#2D6A4F) accents, calm organic feel',
-'bold-navy':'deep navy (#0D1B2A) background, bright cyan (#4CC9F0) accents, white text, bold scientific look',
-'warm-coral':'warm cream (#FFF8F0) background, coral (#E76F51) accents, friendly approachable feel'
+var THEMES = {
+  "medical-clean": "white background, teal (#0F6E56) accent colors, clean professional medical look",
+  "nature-green": "sage green background (#E8F5E9), forest green (#2D6A4F) accents, calm organic feel",
+  "bold-navy": "deep navy background (#0D1B2A), bright cyan (#4CC9F0) accents, white text, bold scientific look",
+  "warm-coral": "warm cream background (#FFF8F0), coral (#E76F51) accents, friendly approachable feel"
 };
 
-let course='hs',subject='Skeletal System',lang='bilingual',difficulty='basic',theme='medical-clean',outputMode='flashcard',matchType='term-spanish';
+var course = "hs";
+var subject = "Skeletal System";
+var lang = "bilingual";
+var difficulty = "basic";
+var theme = "medical-clean";
+var outputMode = "flashcard";
+var matchType = "term-spanish";
 
-function switchCourse(c){course=c;['hs','ap','nur'].forEach(id=>{document.getElementById('tab-'+id).className='ctab'+(id===c?' a-'+id:'');document.getElementById('panel-'+id).classList.toggle('vis',id===c);});const first=document.querySelector('#pills-'+c+' .pill');if(first){document.querySelectorAll('#pills-'+c+' .pill').forEach(p=>p.classList.remove('active'));first.classList.add('active');subject=first.dataset.val;updateSel();loadVocab();}}
-function updateSel(){const el=document.getElementById('selDisp');el.textContent='Selected: '+subject;el.classList.add('vis');}
-document.querySelectorAll('.pills .pill').forEach(p=>{p.addEventListener('click',()=>{p.closest('.spanel').querySelectorAll('.pill').forEach(x=>x.classList.remove('active'));p.classList.add('active');subject=p.dataset.val;updateSel();loadVocab();});});
-function loadVocab(){const terms=(VOCAB[course]&&VOCAB[course][subject])||[];const grid=document.getElementById('termGrid');grid.innerHTML='';terms.forEach(t=>{const div=document.createElement('div');div.className='term-item on';const cb=document.createElement('input');cb.type='checkbox';cb.checked=true;cb.addEventListener('change',()=>{div.classList.toggle('on',cb.checked);updateSelCount();});const span=document.createElement('span');span.textContent=t;div.appendChild(cb);div.appendChild(span);div.addEventListener('click',e=>{if(e.target!==cb){cb.checked=!cb.checked;div.classList.toggle('on',cb.checked);updateSelCount();}});grid.appendChild(div);});document.getElementById('vocabMeta').innerHTML='<strong>'+terms.length+' terms</strong> loaded for <strong>'+subject+'</strong>';updateSelCount();}
-function selectAll(){document.querySelectorAll('#termGrid .term-item').forEach(d=>{d.classList.add('on');d.querySelector('input').checked=true;});updateSelCount();}
-function deselectAll(){document.querySelectorAll('#termGrid .term-item').forEach(d=>{d.classList.remove('on');d.querySelector('input').checked=false;});updateSelCount();}
-function getTerms(){const checked=[...document.querySelectorAll('#termGrid .term-item.on span')].map(s=>s.textContent.trim());const added=document.getElementById('addInput').value.split('\n').map(t=>t.trim()).filter(Boolean);return[...new Set([...checked,...added])];}
-function updateSelCount(){const n=getTerms().length;const el=document.getElementById('selCount');el.textContent=n+' term'+(n!==1?'s':'')+' selected';el.classList.toggle('vis',n>0);}
-function setLang(v){lang=v;document.querySelectorAll('#langTog .tog').forEach(t=>t.classList.toggle('active',t.dataset.val===v));if(outputMode==='memory')setMatch(v==='bilingual'?'term-spanish':'term-definition');}
-function setMatch(v){matchType=v;document.querySelectorAll('#matchTog .tog').forEach(t=>t.classList.toggle('active',t.dataset.val===v));}
-document.querySelectorAll('#diffGrid .gopt').forEach(p=>{p.addEventListener('click',()=>{document.querySelectorAll('#diffGrid .gopt').forEach(x=>x.classList.remove('active'));p.classList.add('active');difficulty=p.dataset.val;});});
-document.querySelectorAll('#themeGrid .gopt').forEach(p=>{p.addEventListener('click',()=>{document.querySelectorAll('#themeGrid .gopt').forEach(x=>x.classList.remove('active'));p.classList.add('active');theme=p.dataset.val;});});
-document.querySelectorAll('#featGrid .gopt').forEach(p=>{p.addEventListener('click',()=>p.classList.toggle('active'));});
-document.querySelectorAll('#outputGrid .gopt').forEach(p=>{p.addEventListener('click',()=>{document.querySelectorAll('#outputGrid .gopt').forEach(x=>x.classList.remove('active'));p.classList.add('active');outputMode=p.dataset.val;document.getElementById('flashcardOpts').style.display=outputMode==='flashcard'?'block':'none';document.getElementById('memOpts').style.display=outputMode==='memory'?'block':'none';if(outputMode==='memory')setMatch(lang==='bilingual'?'term-spanish':'term-definition');document.getElementById('genIcon').textContent=outputMode==='memory'?'&#129513;':'&#10022;';document.getElementById('genTxt').textContent=outputMode==='memory'?'Generate Memory Game Prompt':'Generate Flashcard Deck Prompt';});});
+function switchCourse(c) {
+  course = c;
+  ["hs","ap","nur"].forEach(function(id) {
+    document.getElementById("tab-"+id).className = "ctab" + (id===c ? " a-"+id : "");
+    document.getElementById("panel-"+id).classList.toggle("vis", id===c);
+  });
+  var first = document.querySelector("#pills-"+c+" .pill");
+  if (first) {
+    document.querySelectorAll("#pills-"+c+" .pill").forEach(function(p){ p.classList.remove("active"); });
+    first.classList.add("active");
+    subject = first.dataset.val;
+    document.getElementById("selDisp").textContent = "Subject: " + subject;
+    document.getElementById("selDisp").classList.add("vis");
+    loadVocab();
+  }
+}
 
-function generate(){
-  const terms=getTerms();
-  if(!terms.length){alert('Please select at least one vocabulary term.');return;}
-  if(outputMode==='memory'&&terms.length>20){if(!confirm('You have '+terms.length+' terms. Memory games work best with 8-12 pairs. Continue?'))return;}
-  const chunks=outputMode==='memory'?buildMemoryChunks(terms):buildFlashcardChunks(terms);
+function selectSubject(btn) {
+  var pills = btn.closest(".pills").querySelectorAll(".pill");
+  pills.forEach(function(p){ p.classList.remove("active"); });
+  btn.classList.add("active");
+  subject = btn.dataset.val;
+  document.getElementById("selDisp").textContent = "Subject: " + subject;
+  document.getElementById("selDisp").classList.add("vis");
+  loadVocab();
+}
+
+function loadVocab() {
+  var terms = (VOCAB[course] && VOCAB[course][subject]) ? VOCAB[course][subject] : [];
+  var grid = document.getElementById("termGrid");
+  grid.innerHTML = "";
+  terms.forEach(function(t) {
+    var div = document.createElement("div");
+    div.className = "term-item on";
+    var cb = document.createElement("input");
+    cb.type = "checkbox";
+    cb.checked = true;
+    cb.addEventListener("change", function() {
+      div.classList.toggle("on", cb.checked);
+      updateSelCount();
+    });
+    var span = document.createElement("span");
+    span.textContent = t;
+    div.appendChild(cb);
+    div.appendChild(span);
+    div.addEventListener("click", function(e) {
+      if (e.target !== cb) {
+        cb.checked = !cb.checked;
+        div.classList.toggle("on", cb.checked);
+        updateSelCount();
+      }
+    });
+    grid.appendChild(div);
+  });
+  document.getElementById("vocabMeta").innerHTML = "<strong>" + terms.length + " terms</strong> loaded for <strong>" + subject + "</strong>";
+  updateSelCount();
+}
+
+function selectAll() {
+  document.querySelectorAll("#termGrid .term-item").forEach(function(d){
+    d.classList.add("on");
+    d.querySelector("input").checked = true;
+  });
+  updateSelCount();
+}
+
+function deselectAll() {
+  document.querySelectorAll("#termGrid .term-item").forEach(function(d){
+    d.classList.remove("on");
+    d.querySelector("input").checked = false;
+  });
+  updateSelCount();
+}
+
+function getTerms() {
+  var checked = Array.from(document.querySelectorAll("#termGrid .term-item.on span")).map(function(s){ return s.textContent.trim(); });
+  var added = document.getElementById("addInput").value.split("\n").map(function(t){ return t.trim(); }).filter(function(t){ return t.length > 0; });
+  var all = checked.concat(added);
+  return all.filter(function(v, i, a){ return a.indexOf(v) === i; });
+}
+
+function updateSelCount() {
+  var n = getTerms().length;
+  var el = document.getElementById("selCount");
+  el.textContent = n + " term" + (n !== 1 ? "s" : "") + " selected";
+  el.classList.toggle("vis", n > 0);
+}
+
+function setLang(v) {
+  lang = v;
+  ["bilingual","english","spanish"].forEach(function(x){
+    document.getElementById("lang-"+x).classList.toggle("active", x===v);
+  });
+  if (outputMode === "memory") setMatch(v === "bilingual" ? "term-spanish" : "term-definition");
+}
+
+function setDiff(v) {
+  difficulty = v;
+  ["basic","intermediate","advanced"].forEach(function(x){
+    document.getElementById("diff-"+x).classList.toggle("active", x===v);
+  });
+}
+
+function setTheme(v) {
+  theme = v;
+  ["medical-clean","nature-green","bold-navy","warm-coral"].forEach(function(x){
+    document.getElementById("theme-"+x).classList.toggle("active", x===v);
+  });
+}
+
+function toggleFeat(v) {
+  document.getElementById("feat-"+v).classList.toggle("active");
+}
+
+function setMode(v) {
+  outputMode = v;
+  ["flashcard","memory"].forEach(function(x){
+    document.getElementById("mode-"+x).classList.toggle("active", x===v);
+  });
+  document.getElementById("flashcardOpts").style.display = v === "flashcard" ? "block" : "none";
+  document.getElementById("memOpts").style.display = v === "memory" ? "block" : "none";
+  if (v === "memory") setMatch(lang === "bilingual" ? "term-spanish" : "term-definition");
+  document.getElementById("genIcon").textContent = v === "memory" ? "&#129513;" : "&#10022;";
+  document.getElementById("genTxt").textContent = v === "memory" ? "Generate Memory Game Prompt" : "Generate Flashcard Deck Prompt";
+}
+
+function setMatch(v) {
+  matchType = v;
+  ["term-spanish","term-definition"].forEach(function(x){
+    document.getElementById("match-"+x).classList.toggle("active", x===v);
+  });
+}
+
+function getCL() {
+  return course === "nur" ? "CTE Nurse Aide" : course === "ap" ? "Anatomy and Physiology" : "Health Science I";
+}
+
+function getDN() {
+  if (difficulty === "advanced") return "Use clinical AP-level definitions, 2 sentences each.";
+  if (difficulty === "intermediate") return "Use clear grade-level definitions, 1-2 sentences each.";
+  return "Use simple introductory definitions, 1 clear sentence each.";
+}
+
+function generate() {
+  var terms = getTerms();
+  if (!terms.length) { alert("Please select at least one vocabulary term."); return; }
+  if (outputMode === "memory" && terms.length > 20) {
+    if (!confirm("You have " + terms.length + " terms. Memory games work best with 8-12 pairs. Continue?")) return;
+  }
+  var chunks = outputMode === "memory" ? buildMemoryChunks(terms) : buildFlashcardChunks(terms);
   renderOutput(chunks);
 }
 
-function getCL(){return course==='nur'?'CTE Nurse Aide':course==='ap'?'Anatomy and Physiology':'Health Science I';}
-function getDN(){return difficulty==='advanced'?'Use clinical AP-level definitions (2 sentences each).':difficulty==='intermediate'?'Use clear grade-level definitions (1-2 sentences each).':'Use simple introductory definitions (1 clear sentence each).';}
+function buildFlashcardChunks(terms) {
+  var cl = getCL();
+  var dn = getDN();
+  var ne = lang !== "english";
+  var thm = THEMES[theme] || THEMES["medical-clean"];
+  var feats = [];
+  if (document.getElementById("feat-progress").classList.contains("active")) feats.push("a progress indicator showing Card X of Y");
+  if (document.getElementById("feat-shuffle").classList.contains("active")) feats.push("a Shuffle button to randomize card order");
+  if (document.getElementById("feat-score").classList.contains("active")) feats.push("Know it and Still learning buttons with a summary at the end");
+  if (document.getElementById("feat-keyboard").classList.contains("active")) feats.push("keyboard navigation using arrow keys and spacebar");
 
-function buildFlashcardChunks(terms){
-  const cl=getCL();const dn=getDN();const ne=lang!=='english';const thm=THEMES[theme];
-  const feats=[...document.querySelectorAll('#featGrid .gopt.active')].map(f=>f.dataset.val);
-  const fs=[];
-  if(feats.includes('progress'))fs.push('a progress indicator showing Card X of Y');
-  if(feats.includes('shuffle'))fs.push('a Shuffle button to randomize card order');
-  if(feats.includes('score'))fs.push('Know it and Still learning buttons with a summary screen at the end');
-  if(feats.includes('keyboard'))fs.push('keyboard navigation using arrow keys and spacebar');
-  const langNote=ne?'CARD FRONT: Display the English term large and bold at the top. Directly below it show the Spanish medical translation in italic text in the accent color. At the bottom show a small subject label.\nCARD BACK: Show the definition in readable text. At the top show a small reminder with both the English and Spanish terms.':'CARD FRONT: Display the term large and bold. At the bottom show a small subject label.\nCARD BACK: Show the definition in readable text. At the top show a small reminder of the term.';
-  const first=terms.slice(0,3);const rest=terms.slice(3);
-  const s1='Build an interactive flashcard deck for a '+cl+' class studying the '+subject+' unit.\n\nDESIGN: '+thm+'. Each card has a smooth 3D CSS flip animation on click or tap. Fully responsive, works on Chromebooks, tablets, and phones. No external libraries.\n\nCARD LAYOUT:\n'+langNote+'\nSubject label text: '+subject+' | '+cl+'\n\nDEFINITIONS: '+dn+' Write each definition appropriate for high school health science students.'+(ne?'\n\nSPANISH TRANSLATIONS: Provide accurate medical Spanish translations for each term.':'')+'\n\nFEATURES: Previous and Next navigation buttons, a Restart button'+(fs.length?', '+fs.join(', '):'')+'\n\nTERMS (add as the card data array):\n'+first.map((t,i)=>(i+1)+'. '+t).join('\n')+'\n\nBuild the complete working app with all '+Math.min(3,terms.length)+' cards fully populated with real definitions'+(ne?' and Spanish translations':'')+'.';
-  const chunks=[s1];
-  for(let i=0;i<rest.length;i+=8){const slice=rest.slice(i,i+8);const isLast=i+8>=rest.length;chunks.push('Add these additional terms to the flashcard deck'+(isLast?' (these are the final terms)':'')+'. Write accurate definitions'+(ne?' and Spanish medical translations':'')+' for each one:\n'+slice.map((t,j)=>(i+3+j+1)+'. '+t).join('\n')+(isLast?'\n\nAfter adding these, update the total card count in the progress indicator and verify all navigation works correctly.':''));}
+  var front = ne
+    ? "CARD FRONT: Show the English term large and bold. Below it show the Spanish medical translation in italic accent color. At the bottom show a small subject label."
+    : "CARD FRONT: Show the term large and bold. At the bottom show a small subject label.";
+  var back = ne
+    ? "CARD BACK: Show the definition in readable text. At the top show a small reminder with both the English and Spanish terms."
+    : "CARD BACK: Show the definition in readable text. At the top show a small reminder of the term.";
+
+  var first3 = terms.slice(0, 3);
+  var rest = terms.slice(3);
+
+  var p1 = "Build an interactive flashcard deck for a " + cl + " class studying the " + subject + " unit.\n\n";
+  p1 += "DESIGN: " + thm + ". Each card has a smooth 3D CSS flip animation on click or tap. Fully responsive for Chromebooks, tablets, and phones. No external libraries.\n\n";
+  p1 += "CARD LAYOUT:\n" + front + "\n" + back + "\n";
+  p1 += "Subject label text: " + subject + " | " + cl + "\n\n";
+  p1 += "DEFINITIONS: " + dn + " Write each definition for high school health science students.";
+  if (ne) p1 += "\n\nSPANISH TRANSLATIONS: Provide accurate medical Spanish translations for each term.";
+  p1 += "\n\nFEATURES: Previous and Next navigation buttons, a Restart button";
+  if (feats.length) p1 += ", " + feats.join(", ");
+  p1 += ".\n\nTERMS - add as the card data array (make it easy to extend):\n";
+  p1 += first3.map(function(t, i){ return (i+1) + ". " + t; }).join("\n");
+  p1 += "\n\nBuild the complete working app with all " + first3.length + " cards fully populated with real definitions" + (ne ? " and Spanish translations" : "") + ".";
+
+  var chunks = [p1];
+  for (var i = 0; i < rest.length; i += 8) {
+    var slice = rest.slice(i, i + 8);
+    var isLast = (i + 8) >= rest.length;
+    var p = "Add these additional terms to the flashcard deck" + (isLast ? " (these are the final terms)" : "") + ".\n";
+    p += "Write accurate definitions" + (ne ? " and Spanish medical translations" : "") + " for each one and add them to the cards array:\n";
+    p += slice.map(function(t, j){ return (i + 3 + j + 1) + ". " + t; }).join("\n");
+    if (isLast) p += "\n\nAfter adding these, update the total card count in the progress indicator and verify all navigation works correctly with the full set.";
+    chunks.push(p);
+  }
   return chunks;
 }
 
-function buildMemoryChunks(terms){
-  const cl=getCL();const dn=getDN();const thm=THEMES[theme];const isSpanish=matchType==='term-spanish';
-  const pairDesc=isSpanish?'Each pair: an ENGLISH TERM card matching its SPANISH MEDICAL TRANSLATION card.':'Each pair: a TERM card matching its DEFINITION card.';
-  const cardStyle=isSpanish?'Term cards: bold, accent background. Spanish cards: italic text, lighter accent color.':'Term cards: bold, accent background. Definition cards: smaller text, white or light background.';
-  const genNote=isSpanish?'Generate accurate Spanish medical translations for all terms.':dn+' Generate a short definition (max 12 words) for each term - short enough to fit on a card.';
-  const first=terms.slice(0,6);const rest=terms.slice(6);
-  const s1='Build a memory match card game for a '+cl+' class studying the '+subject+' unit.\n\nDESIGN: '+thm+'. All cards start face-down. Smooth flip animation on click. Responsive grid - 4 columns desktop, 3 tablet, 2 mobile. No external libraries.\n\nGAME RULES: '+pairDesc+'\n'+cardStyle+'\nClick a card to flip it. Click a second card: if they match, both stay face-up. If not, both flip back after 1 second. Game ends when all '+terms.length+' pairs are matched.\n\nFEATURES: Move counter, pairs found tracker (X of '+terms.length+'), elapsed timer, shuffle on load, Play Again button with celebration animation on completion.\n\n'+genNote+'\n\nPAIRS (add to game data array):\n'+first.map((t,i)=>'Pair '+(i+1)+': "'+t+'"').join('\n')+'\n\nBuild the complete working game with all '+Math.min(6,terms.length)+' pairs fully populated.';
-  const chunks=[s1];
-  for(let i=0;i<rest.length;i+=10){const slice=rest.slice(i,i+10);const isLast=i+10>=rest.length;chunks.push('Add these additional pairs to the memory game'+(isLast?' (final pairs)':'')+'. Generate '+(isSpanish?'Spanish medical translations':'short definitions (max 12 words)')+' for each term:\n'+slice.map((t,j)=>'Pair '+(i+6+j+1)+': "'+t+'"').join('\n')+(isLast?'\n\nUpdate total to '+terms.length+' pairs. Verify shuffle and win detection work for the full set.':''));}
+function buildMemoryChunks(terms) {
+  var cl = getCL();
+  var dn = getDN();
+  var thm = THEMES[theme] || THEMES["medical-clean"];
+  var isSpanish = matchType === "term-spanish";
+  var pairDesc = isSpanish
+    ? "Each pair: an ENGLISH TERM card matching its SPANISH MEDICAL TRANSLATION card."
+    : "Each pair: a TERM card matching its DEFINITION card.";
+  var cardStyle = isSpanish
+    ? "Term cards: bold, accent color background. Spanish cards: italic text, lighter accent color."
+    : "Term cards: bold, accent color background. Definition cards: smaller text (13px), white or light background.";
+  var genNote = isSpanish
+    ? "Generate accurate Spanish medical translations for all terms."
+    : dn + " Keep definitions under 12 words so they fit on a card.";
+
+  var first6 = terms.slice(0, 6);
+  var rest = terms.slice(6);
+
+  var p1 = "Build a memory match card game for a " + cl + " class studying the " + subject + " unit.\n\n";
+  p1 += "DESIGN: " + thm + ". All cards start face-down. Smooth CSS flip animation on click. Responsive grid: 4 columns desktop, 3 tablet, 2 mobile. No external libraries.\n\n";
+  p1 += "GAME RULES: " + pairDesc + "\n" + cardStyle + "\n";
+  p1 += "Click a card to flip it face-up. Click a second card: if they match, both stay face-up. If not, both flip back after 1 second. Game ends when all " + terms.length + " pairs are matched.\n\n";
+  p1 += "FEATURES: Move counter, pairs found tracker (X of " + terms.length + "), elapsed timer, shuffle cards on load, Play Again button with celebration on completion.\n\n";
+  p1 += genNote + "\n\n";
+  p1 += "PAIRS - add to the game data array (make it easy to extend):\n";
+  p1 += first6.map(function(t, i){ return "Pair " + (i+1) + ": " + t; }).join("\n");
+  p1 += "\n\nBuild the complete working game with all " + first6.length + " pairs fully populated.";
+
+  var chunks = [p1];
+  for (var i = 0; i < rest.length; i += 10) {
+    var slice = rest.slice(i, i + 10);
+    var isLast = (i + 10) >= rest.length;
+    var p = "Add these additional pairs to the memory game" + (isLast ? " (final pairs)" : "") + ".\n";
+    p += "Generate " + (isSpanish ? "Spanish medical translations" : "short definitions under 12 words") + " for each term:\n";
+    p += slice.map(function(t, j){ return "Pair " + (i + 6 + j + 1) + ": " + t; }).join("\n");
+    if (isLast) p += "\n\nUpdate total to " + terms.length + " pairs. Verify shuffle and win detection work for the full set.";
+    chunks.push(p);
+  }
   return chunks;
 }
 
-function renderOutput(chunks){
-  const isM=outputMode==='memory';const terms=getTerms();
-  const title=isM?'Memory match game prompt ready - '+terms.length+' pairs':'Flashcard deck prompt ready - '+terms.length+' cards';
-  const warnHTML=chunks.length>1?'<div class="warn-box">Important: All '+chunks.length+' prompts must go into the SAME Canva Code conversation, one at a time in order. Do not start a new conversation between steps.</div>':'';
-  const chunksHTML=chunks.map(function(text,i){
-    const len=text.length;const id='chunk-'+i;
-    const col=len<=3200?'var(--teal)':len<=3800?'var(--amber)':'#E24B4A';
-    const lbl=i===0?'Step 1 of '+chunks.length+' - Build the '+(isM?'game':'deck')+' structure':'Step '+(i+1)+' of '+chunks.length+' - Add '+(isM?'more pairs':'more cards');
-    return '<div class="chunk-block"><div class="chunk-hdr"><div><div class="chunk-label">'+lbl+'</div><div class="chunk-count" style="color:'+col+';">'+len.toLocaleString()+' / 4,000 chars '+(len<=3800?'checkmark':'warning')+'</div></div><button class="copy-btn" onclick="doCopy(''+id+'',this)">Copy prompt</button></div><div class="prompt-box" id="'+id+'">'+escH(text)+'</div></div>';
-  }).join('');
-  const howSteps=chunks.map(function(_,i){return i===0?'<li>Paste Step 1 into Canva Code and press Enter</li>':'<li>Paste Step '+(i+1)+' as a follow-up in the same conversation</li>';}).join('');
-  document.getElementById('outSec').innerHTML='<div class="out-panel"><div class="out-title">'+title+'</div><div class="out-sub">Split into '+chunks.length+' prompt'+(chunks.length>1?'s':'')+' - paste each one in order into the same Canva Code conversation.</div>'+warnHTML+chunksHTML+'<div class="how-to"><div class="how-to-title">How to use in Canva Code</div><ol><li>Open Canva, click Canva AI, then select Code for me</li>'+howSteps+'<li>Preview your activity, then click Use in a design to embed it</li><li>Refine with follow-up messages: make the font larger, add a timer, change colors, etc.</li></ol></div></div>';
-  document.getElementById('outSec').classList.add('vis');
-  document.getElementById('outSec').scrollIntoView({behavior:'smooth',block:'start'});
+function renderOutput(chunks) {
+  var isM = outputMode === "memory";
+  var terms = getTerms();
+  var title = isM ? "Memory match game prompt ready - " + terms.length + " pairs" : "Flashcard deck prompt ready - " + terms.length + " cards";
+
+  var warnHTML = chunks.length > 1
+    ? "<div class=\"warn-box\">Important: All " + chunks.length + " prompts must go into the SAME Canva Code conversation, one at a time in order. Do not start a new conversation between steps.</div>"
+    : "";
+
+  var chunksHTML = chunks.map(function(text, i) {
+    var len = text.length;
+    var id = "chunk-" + i;
+    var col = len <= 3200 ? "#0F6E56" : len <= 3800 ? "#854F0B" : "#E24B4A";
+    var lbl = i === 0
+      ? "Step 1 of " + chunks.length + " - Build the " + (isM ? "game" : "deck") + " structure"
+      : "Step " + (i+1) + " of " + chunks.length + " - Add " + (isM ? "more pairs" : "more cards");
+    return "<div class=\"chunk-block\">" +
+      "<div class=\"chunk-hdr\">" +
+        "<div><div class=\"chunk-label\">" + lbl + "</div>" +
+        "<div class=\"chunk-count\" style=\"color:" + col + ";\">" + len.toLocaleString() + " / 4,000 chars " + (len <= 3800 ? "OK" : "- consider splitting") + "</div></div>" +
+        "<button class=\"copy-btn\" onclick=\"doCopy('" + id + "',this)\">Copy prompt</button>" +
+      "</div>" +
+      "<div class=\"prompt-box\" id=\"" + id + "\">" + escH(text) + "</div>" +
+    "</div>";
+  }).join("");
+
+  var howSteps = chunks.map(function(_, i) {
+    return i === 0
+      ? "<li>Paste Step 1 into Canva Code and press Enter</li>"
+      : "<li>When Step " + i + " is complete, paste Step " + (i+1) + " as a follow-up in the same conversation</li>";
+  }).join("");
+
+  document.getElementById("outSec").innerHTML =
+    "<div class=\"out-panel\">" +
+      "<div class=\"out-title\">" + title + "</div>" +
+      "<div class=\"out-sub\">Split into " + chunks.length + " prompt" + (chunks.length > 1 ? "s" : "") + " - paste each one in order into the same Canva Code conversation.</div>" +
+      warnHTML +
+      chunksHTML +
+      "<div class=\"how-to\">" +
+        "<div class=\"how-to-title\">How to use in Canva Code</div>" +
+        "<ol>" +
+          "<li>Open Canva, click <strong>Canva AI</strong>, then select <strong>Code for me</strong></li>" +
+          howSteps +
+          "<li>Preview your activity, then click <strong>Use in a design</strong> to embed it</li>" +
+          "<li>Refine with follow-up messages: make the font larger, add a timer, change colors, etc.</li>" +
+        "</ol>" +
+      "</div>" +
+    "</div>";
+
+  document.getElementById("outSec").classList.add("vis");
+  document.getElementById("outSec").scrollIntoView({behavior:"smooth", block:"start"});
 }
 
-function escH(s){return(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-function doCopy(id,btn){const text=document.getElementById(id).textContent;const orig=btn.textContent;const ok=function(){btn.textContent='Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent=orig;btn.classList.remove('copied');},2500);};const fail=function(){btn.textContent='Use Ctrl+A, Ctrl+C';setTimeout(function(){btn.textContent=orig;},3000);};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(ok).catch(function(){fbCopy(text,ok,fail);});}else{fbCopy(text,ok,fail);}}
-function fbCopy(text,ok,fail){const ta=document.createElement('textarea');ta.value=text;ta.style.cssText='position:fixed;top:0;left:0;width:2em;height:2em;padding:0;border:none;background:transparent;opacity:0;';document.body.appendChild(ta);ta.focus();ta.select();ta.setSelectionRange(0,ta.value.length);try{document.execCommand('copy')?ok():fail();}catch(e){fail();}document.body.removeChild(ta);}
+function escH(s) {
+  return (s || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
 
-updateSel();loadVocab();document.getElementById('memOpts').style.display='none';
+function doCopy(id, btn) {
+  var text = document.getElementById(id).textContent;
+  var orig = btn.textContent;
+  function ok() { btn.textContent = "Copied!"; btn.classList.add("copied"); setTimeout(function(){ btn.textContent = orig; btn.classList.remove("copied"); }, 2500); }
+  function fail() { btn.textContent = "Use Ctrl+A then Ctrl+C"; setTimeout(function(){ btn.textContent = orig; }, 3000); }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(ok).catch(function(){ fbCopy(text, ok, fail); });
+  } else { fbCopy(text, ok, fail); }
+}
+
+function fbCopy(text, ok, fail) {
+  var ta = document.createElement("textarea");
+  ta.value = text;
+  ta.style.cssText = "position:fixed;top:0;left:0;width:2em;height:2em;padding:0;border:none;background:transparent;opacity:0;";
+  document.body.appendChild(ta);
+  ta.focus(); ta.select(); ta.setSelectionRange(0, ta.value.length);
+  try { document.execCommand("copy") ? ok() : fail(); } catch(e) { fail(); }
+  document.body.removeChild(ta);
+}
+
+// Init
+loadVocab();
+document.getElementById("selDisp").textContent = "Subject: " + subject;
+document.getElementById("selDisp").classList.add("vis");
 </script>
 </body>
 </html>
